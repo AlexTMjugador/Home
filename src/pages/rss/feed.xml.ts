@@ -15,6 +15,6 @@ export function get(context: APIContext) {
 		// See "Generating items" section for examples using content collections and
 		// glob imports
 		// https://docs.astro.build/en/guides/rss/
-		items: []
+		items: [],
 	});
 }
