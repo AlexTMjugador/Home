@@ -5,6 +5,7 @@
 		"dbaeumer.vscode-eslint",
 		"editorconfig.editorconfig",
 		"bradlc.vscode-tailwindcss",
-		"svelte.svelte-vscode"
+		"svelte.svelte-vscode",
+		"davidanson.vscode-markdownlint"
 	]
 }
