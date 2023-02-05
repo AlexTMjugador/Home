@@ -1,0 +1,49 @@
+---
+export interface Props {
+	title: string;
+	description?: string;
+	author?: string;
+	relativeThumbnailImagePath?: string;
+}
+
+const { title, description, author, relativeThumbnailImagePath } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en" prefix="og: http://ogp.me/ns#">
+	<head>
+		<meta charset="utf-8" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+		<title>{title} — {import.meta.env.PUBLIC_SITE_TAGLINE}</title>
+		<meta property="og:type" content="website" />
+		<meta
+			name="description"
+			property="og:description"
+			content={description ?? import.meta.env.PUBLIC_SITE_TAGLINE}
+		/>
+		{author && <meta name="author" content={author} />}
+
+		<meta
+			property="og:image"
+			content={new URL(
+				relativeThumbnailImagePath ?? "icons/icon-512x512.png",
+				new URL(import.meta.env.BASE_URL, Astro.site)
+			)}
+		/>
+		<meta name="twitter:card" content="summary_large_image" />
+
+		<link
+			rel="alternate"
+			type="application/rss+xml"
+			title="Web feed"
+			href={`${import.meta.env.BASE_URL.replace(/\/$/, "")}/rss/feed.xml`}
+		/>
+
+		<link rel="canonical" href={new URL(Astro.url.pathname, Astro.site)} />
+	</head>
+	<body>
+		<slot />
+	</body>
+</html>
