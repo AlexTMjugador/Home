@@ -28,6 +28,7 @@ export const { getStaticPaths, get } = OGImageRoute({
 	getImageOptions: (_, page) => ({
 		title: page.title,
 		description: page.description,
+		format: "PNG",
 		padding: 60,
 		font: {
 			title: {

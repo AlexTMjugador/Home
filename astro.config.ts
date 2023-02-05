@@ -11,7 +11,9 @@ import webmanifest from "astro-webmanifest";
 import frontendistahtmlMinify from "@frontendista/astro-html-minify";
 
 export default defineConfig({
-	site: "https://www.example.com",
+	site: import.meta.env.DEV
+		? "http://localhost:3000"
+		: "https://www.example.com",
 	integrations: [
 		tailwind(),
 		svelte(),
