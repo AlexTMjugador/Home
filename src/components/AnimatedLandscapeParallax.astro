@@ -1,0 +1,66 @@
+<div class="relative h-full overflow-hidden">
+	<div class="bg-parallax-celestial-body absolute inset-0 sepia"></div>
+	<div class="bg-parallax-landscape-trees-far absolute inset-0 sepia"></div>
+	<div class="bg-parallax-landscape-trees-medium absolute inset-0"></div>
+	<div class="bg-parallax-landscape-trees-near absolute inset-0 sepia-[0.66]">
+	</div>
+	<div class="bg-parallax-fog absolute inset-0"></div>
+	<div class="bg-parallax-ground-near absolute inset-0 brightness-125"></div>
+	<div class="bg-parallax-trees bg-parallax-trees-filter absolute inset-0">
+	</div>
+</div>
+
+<style lang="scss">
+	.bg-parallax-trees-filter {
+		filter: invert(1) sepia(0.66) brightness(8%)
+			drop-shadow(0 50px 25px rgb(0 0 0 / 0.33));
+	}
+
+	$bgLayersScrollDistances: (
+		trees: 25%,
+		ground-near: 15%,
+		fog: 25%,
+		landscape-trees-near: 10%,
+		landscape-trees-medium: 7%,
+		landscape-trees-far: 5%,
+		celestial-body: 2%,
+	);
+
+	@each $name, $distance in $bgLayersScrollDistances {
+		.bg-parallax-#{$name} {
+			// This margin and padding allows up to 25% distance
+			// in the horizontal axis without running out of image to show
+			@apply ml-[-50%] bg-cover pl-[50%];
+
+			// Use image-set support as a proxy for WebP support: user agents
+			// that support image-set also support WebP. Browsers that do not
+			// support image-set will fallback to PNG, while those that support
+			// image-set will get WebP, unless they are strange enough to support
+			// unprefixed image-set but not WebP.
+			// See: https://css-tricks.com/using-performant-next-gen-images-in-css-with-image-set/
+			background-image: url("/images/landscape-parallax/#{$name}.png");
+			background-image: -webkit-image-set(
+				url("/images/landscape-parallax/#{$name}.webp") 1x
+			);
+			background-image: image-set(
+				"/images/landscape-parallax/#{$name}.webp" type("image/webp"),
+				"/images/landscape-parallax/#{$name}.png" type("image/png")
+			);
+
+			@keyframes bg-parallax-scroll-#{$name} {
+				from {
+					transform: translateX(0);
+				}
+				to {
+					transform: translateX($distance);
+				}
+			}
+
+			animation: 45s
+				cubic-bezier(0.445, 0.05, 0.55, 0.95)
+				infinite
+				alternate
+				bg-parallax-scroll-#{$name};
+		}
+	}
+</style>

@@ -1,65 +1,10 @@
 ---
+import AnimatedParallaxLandscape from "@components/AnimatedLandscapeParallax.astro";
 import PageShell from "@layouts/PageShell.astro";
 ---
 
 <PageShell title="Home">
-	<div class="relative h-screen overflow-hidden">
-		<div class="bg-parallax-celestial-body absolute inset-0 sepia"></div>
-		<div class="bg-parallax-landscape-trees-far absolute inset-0 sepia"></div>
-		<div class="bg-parallax-landscape-trees-medium absolute inset-0"></div>
-		<div class="bg-parallax-landscape-trees-near absolute inset-0 sepia-[0.66]">
-		</div>
-		<div class="bg-parallax-fog absolute inset-0"></div>
-		<div class="bg-parallax-ground-near absolute inset-0 brightness-125"></div>
-		<div class="bg-parallax-trees bg-parallax-trees-filter absolute inset-0">
-		</div>
+	<div class="h-screen">
+		<AnimatedParallaxLandscape />
 	</div>
 </PageShell>
-
-<style lang="scss">
-	.bg-parallax-trees-filter {
-		filter: invert(1) sepia(0.66) brightness(8%)
-			drop-shadow(0 50px 25px rgb(0 0 0 / 0.33));
-	}
-
-	$bgLayersScrollDistances: (
-		trees: 25%,
-		ground-near: 15%,
-		fog: 25%,
-		landscape-trees-near: 10%,
-		landscape-trees-medium: 7%,
-		landscape-trees-far: 5%,
-		celestial-body: 2%,
-	);
-
-	@each $name, $distance in $bgLayersScrollDistances {
-		.bg-parallax-#{$name} {
-			// This margin and padding allows up to 25% distance
-			// in the horizontal axis without running out of image to show
-			@apply ml-[-50%] bg-cover pl-[50%];
-
-			background-image: url("images/hero/parallax-background/#{$name}.png");
-			@supports (
-				background-image: url("images/hero/parallax-background/#{$name}.webp")
-			) {
-				background-image: url("images/hero/parallax-background/#{$name}.webp");
-			}
-
-			@keyframes bg-parallax-scroll-#{$name} {
-				from {
-					transform: translateX(0);
-				}
-				to {
-					transform: translateX($distance);
-				}
-			}
-
-			animation: 45s
-				cubic-bezier(0.445, 0.05, 0.55, 0.95)
-				0s
-				infinite
-				alternate
-				bg-parallax-scroll-#{$name};
-		}
-	}
-</style>
