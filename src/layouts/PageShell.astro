@@ -1,4 +1,6 @@
 ---
+import "@fontsource/finlandica";
+
 export interface Props {
 	title: string;
 	description?: string;
@@ -43,7 +45,7 @@ const { title, description, author, relativeThumbnailImagePath } = Astro.props;
 
 		<link rel="canonical" href={new URL(Astro.url.pathname, Astro.site)} />
 	</head>
-	<body>
+	<body class="bg-stone-400">
 		<slot />
 	</body>
 </html>
