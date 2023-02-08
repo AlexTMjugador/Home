@@ -123,7 +123,7 @@
 		.parallax-#{$name} {
 			// The extra width allows up to 25% distance in the
 			// horizontal axis without running out of image to show
-			@apply left-[-25%] h-full w-[125%] max-w-none object-cover;
+			@apply pointer-events-none left-[-25%] h-full w-[125%] max-w-none select-none object-cover;
 
 			@keyframes parallax-scroll-#{$name} {
 				from {
