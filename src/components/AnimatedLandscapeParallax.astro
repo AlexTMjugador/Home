@@ -1,17 +1,110 @@
-<div class="relative h-full overflow-hidden">
-	<div class="bg-parallax-celestial-body absolute inset-0 sepia"></div>
-	<div class="bg-parallax-landscape-trees-far absolute inset-0 sepia"></div>
-	<div class="bg-parallax-landscape-trees-medium absolute inset-0"></div>
-	<div class="bg-parallax-landscape-trees-near absolute inset-0 sepia-[0.66]">
-	</div>
-	<div class="bg-parallax-fog absolute inset-0"></div>
-	<div class="bg-parallax-ground-near absolute inset-0 brightness-125"></div>
-	<div class="bg-parallax-trees bg-parallax-trees-filter absolute inset-0">
-	</div>
+<div
+	class="landscape-parallax relative h-full overflow-hidden transition-opacity"
+>
+	<picture>
+		<source
+			srcset="/images/landscape-parallax/celestial-body.webp"
+			type="image/webp"
+		/>
+		<img
+			src="/images/landscape-parallax/celestial-body.png"
+			alt=""
+			class="parallax-celestial-body absolute sepia"
+		/>
+	</picture>
+	<picture>
+		<source
+			srcset="/images/landscape-parallax/landscape-trees-far.webp"
+			type="image/webp"
+		/>
+		<img
+			src="/images/landscape-parallax/landscape-trees-far.png"
+			alt=""
+			class="parallax-landscape-trees-far absolute inset-0 sepia"
+		/>
+	</picture>
+	<picture>
+		<source
+			srcset="/images/landscape-parallax/landscape-trees-medium.webp"
+			type="image/webp"
+		/>
+		<img
+			src="/images/landscape-parallax/landscape-trees-medium.png"
+			alt=""
+			class="parallax-landscape-trees-medium absolute inset-0"
+		/>
+	</picture>
+	<picture>
+		<source
+			srcset="/images/landscape-parallax/landscape-trees-near.webp"
+			type="image/webp"
+		/>
+		<img
+			src="/images/landscape-parallax/landscape-trees-near.png"
+			alt=""
+			class="parallax-landscape-trees-near absolute inset-0 sepia-[0.66]"
+		/>
+	</picture>
+	<picture>
+		<source srcset="/images/landscape-parallax/fog.webp" type="image/webp" />
+		<img
+			src="/images/landscape-parallax/fog.png"
+			alt=""
+			class="parallax-fog absolute inset-0"
+		/>
+	</picture>
+	<picture>
+		<source
+			srcset="/images/landscape-parallax/ground-near.webp"
+			type="image/webp"
+		/>
+		<img
+			src="/images/landscape-parallax/ground-near.png"
+			alt=""
+			class="parallax-ground-near absolute inset-0 brightness-125"
+		/>
+	</picture>
+	<picture>
+		<source srcset="/images/landscape-parallax/trees.webp" type="image/webp" />
+		<img
+			src="/images/landscape-parallax/trees.png"
+			alt=""
+			class="parallax-trees parallax-trees-filter absolute inset-0"
+		/>
+	</picture>
 </div>
 
+<script>
+	const invisibilityClass = "opacity-0";
+
+	// Hide the landscape parallax containers until we know they finished loading
+	const landscapeParallaxContainers = document.querySelectorAll(
+		"div.landscape-parallax"
+	);
+	for (const landscapeParallaxContainer of landscapeParallaxContainers) {
+		landscapeParallaxContainer.classList.add(invisibilityClass);
+	}
+
+	const parallaxImages = document.querySelectorAll(
+		"div.landscape-parallax img"
+	);
+
+	let remainingImagesToLoad = parallaxImages.length;
+
+	// Show the landscape parallax containers when all their images loaded successfully
+	for (const parallaxImage of parallaxImages) {
+		parallaxImage.addEventListener("load", () => {
+			if (--remainingImagesToLoad == 0) {
+				landscapeParallaxContainers.forEach((container) => {
+					container.classList.remove(invisibilityClass);
+				});
+			}
+		});
+	}
+</script>
+
 <style lang="scss">
-	.bg-parallax-trees-filter {
+	.parallax-trees-filter {
 		filter: invert(1) sepia(0.66) brightness(8%)
 			drop-shadow(0 50px 25px rgb(0 0 0 / 0.33));
 	}
@@ -27,32 +120,17 @@
 	);
 
 	@each $name, $distance in $bgLayersScrollDistances {
-		.bg-parallax-#{$name} {
-			// This margin and padding allows up to 25% distance
-			// in the horizontal axis without running out of image to show
-			@apply ml-[-50%] bg-cover pl-[50%];
+		.parallax-#{$name} {
+			// The extra width allows up to 25% distance in the
+			// horizontal axis without running out of image to show
+			@apply left-[-25%] h-full w-[125%] max-w-none object-cover;
 
-			// Use image-set support as a proxy for WebP support: user agents
-			// that support image-set also support WebP. Browsers that do not
-			// support image-set will fallback to PNG, while those that support
-			// image-set will get WebP, unless they are strange enough to support
-			// unprefixed image-set but not WebP.
-			// See: https://css-tricks.com/using-performant-next-gen-images-in-css-with-image-set/
-			background-image: url("/images/landscape-parallax/#{$name}.png");
-			background-image: -webkit-image-set(
-				url("/images/landscape-parallax/#{$name}.webp") 1x
-			);
-			background-image: image-set(
-				"/images/landscape-parallax/#{$name}.webp" type("image/webp"),
-				"/images/landscape-parallax/#{$name}.png" type("image/png")
-			);
-
-			@keyframes bg-parallax-scroll-#{$name} {
+			@keyframes parallax-scroll-#{$name} {
 				from {
 					transform: translateX(0);
 				}
 				to {
-					transform: translateX($distance);
+					transform: translateX(calc($distance / 2));
 				}
 			}
 
@@ -60,7 +138,7 @@
 				cubic-bezier(0.445, 0.05, 0.55, 0.95)
 				infinite
 				alternate
-				bg-parallax-scroll-#{$name};
+				parallax-scroll-#{$name};
 		}
 	}
 </style>
