@@ -5,10 +5,15 @@ export interface Props {
 	title: string;
 	description?: string;
 	author?: string;
-	relativeThumbnailImagePath?: string;
+	thumbnailImagePath?: string;
 }
 
-const { title, description, author, relativeThumbnailImagePath } = Astro.props;
+const {
+	title,
+	description = import.meta.env.PUBLIC_SITE_TAGLINE,
+	author,
+	thumbnailImagePath,
+} = Astro.props;
 ---
 
 <!DOCTYPE html>
@@ -20,19 +25,12 @@ const { title, description, author, relativeThumbnailImagePath } = Astro.props;
 
 		<title>{title} — {import.meta.env.PUBLIC_SITE_TAGLINE}</title>
 		<meta property="og:type" content="website" />
-		<meta
-			name="description"
-			property="og:description"
-			content={description ?? import.meta.env.PUBLIC_SITE_TAGLINE}
-		/>
+		<meta name="description" property="og:description" content={description} />
 		{author && <meta name="author" content={author} />}
 
 		<meta
 			property="og:image"
-			content={new URL(
-				relativeThumbnailImagePath ?? "icons/icon-512x512.png",
-				new URL(import.meta.env.BASE_URL, Astro.site)
-			)}
+			content={thumbnailImagePath ?? "/icons/icon-512x512.png"}
 		/>
 		<meta name="twitter:card" content="summary_large_image" />
 
@@ -40,7 +38,7 @@ const { title, description, author, relativeThumbnailImagePath } = Astro.props;
 			rel="alternate"
 			type="application/rss+xml"
 			title="Web feed"
-			href={`${import.meta.env.BASE_URL.replace(/\/$/, "")}/rss/feed.xml`}
+			href="/rss/feed.xml"
 		/>
 
 		<link rel="canonical" href={new URL(Astro.url.pathname, Astro.site)} />
