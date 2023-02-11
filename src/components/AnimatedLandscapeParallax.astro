@@ -1,115 +1,87 @@
-<div
-	class="landscape-parallax relative h-full overflow-hidden transition-opacity"
->
-	<picture>
-		<source
-			srcset="/images/landscape-parallax/celestial-body.webp"
-			type="image/webp"
-		/>
-		<img
-			src="/images/landscape-parallax/celestial-body.png"
-			alt=""
-			class="parallax-celestial-body absolute sepia"
-		/>
-	</picture>
-	<picture>
-		<source
-			srcset="/images/landscape-parallax/landscape-trees-far.webp"
-			type="image/webp"
-		/>
-		<img
-			src="/images/landscape-parallax/landscape-trees-far.png"
-			alt=""
-			class="parallax-landscape-trees-far absolute inset-0 sepia"
-		/>
-	</picture>
-	<picture>
-		<source
-			srcset="/images/landscape-parallax/landscape-trees-medium.webp"
-			type="image/webp"
-		/>
-		<img
-			src="/images/landscape-parallax/landscape-trees-medium.png"
-			alt=""
-			class="parallax-landscape-trees-medium absolute inset-0"
-		/>
-	</picture>
-	<picture>
-		<source
-			srcset="/images/landscape-parallax/landscape-trees-near.webp"
-			type="image/webp"
-		/>
-		<img
-			src="/images/landscape-parallax/landscape-trees-near.png"
-			alt=""
-			class="parallax-landscape-trees-near absolute inset-0 sepia-[0.66]"
-		/>
-	</picture>
-	<picture>
-		<source srcset="/images/landscape-parallax/fog.webp" type="image/webp" />
-		<img
-			src="/images/landscape-parallax/fog.png"
-			alt=""
-			class="parallax-fog absolute inset-0"
-		/>
-	</picture>
-	<picture>
-		<source
-			srcset="/images/landscape-parallax/ground-near.webp"
-			type="image/webp"
-		/>
-		<img
-			src="/images/landscape-parallax/ground-near.png"
-			alt=""
-			class="parallax-ground-near absolute inset-0 brightness-125"
-		/>
-	</picture>
-	<picture>
-		<source srcset="/images/landscape-parallax/trees.webp" type="image/webp" />
-		<img
-			src="/images/landscape-parallax/trees.png"
-			alt=""
-			class="parallax-trees parallax-trees-filter absolute inset-0"
-		/>
-	</picture>
-</div>
+---
+import { Picture } from "@astrojs/image/components";
+
+const parallaxLayers = {
+	"celestial-body": ["sepia"],
+	"landscape-trees-far": ["sepia"],
+	"landscape-trees-medium": [],
+	"landscape-trees-near": ["sepia-[0.66]"],
+	fog: [],
+	"ground-near": ["brightness-125"],
+	trees: ["landscape-parallax-trees-filter"],
+};
+---
+
+<component-landscape-parallax class="relative h-full overflow-hidden">
+	{
+		Object.entries(parallaxLayers).map(([imageName, imageClasses]) => (
+			<Picture
+				src={import(`../images/landscape-parallax/${imageName}.png`)}
+				alt=""
+				formats={["webp", "png"]}
+				widths={[800, 1280, 1920]}
+				sizes={undefined as unknown as string}
+				aspectRatio={undefined}
+				background={undefined}
+				class:list={[
+					`landscape-parallax-${imageName}`,
+					"absolute",
+					...imageClasses,
+				]}
+			/>
+		))
+	}
+	<slot />
+</component-landscape-parallax>
 
 <script>
-	const invisibilityClass = "opacity-0";
+	customElements.define(
+		"component-landscape-parallax",
+		class extends HTMLElement {
+			private remainingImagesToLoad: number;
 
-	// Hide the landscape parallax containers until we know they finished loading
-	const landscapeParallaxContainers = document.querySelectorAll(
-		"div.landscape-parallax"
-	);
-	for (const landscapeParallaxContainer of landscapeParallaxContainers) {
-		landscapeParallaxContainer.classList.add(invisibilityClass);
-	}
+			constructor() {
+				super();
 
-	const parallaxImages = document.querySelectorAll(
-		"div.landscape-parallax img"
-	);
+				const parallaxLayerImages = this.querySelectorAll("img");
 
-	let remainingImagesToLoad = parallaxImages.length;
+				this.remainingImagesToLoad = parallaxLayerImages.length;
 
-	// Show the landscape parallax containers when all their images loaded successfully
-	for (const parallaxImage of parallaxImages) {
-		parallaxImage.addEventListener("load", () => {
-			if (--remainingImagesToLoad == 0) {
-				landscapeParallaxContainers.forEach((container) => {
-					container.classList.remove(invisibilityClass);
-				});
+				for (const parallaxImage of parallaxLayerImages) {
+					parallaxImage.classList.add("opacity-0");
+
+					const loadHandler = () => {
+						if (--this.remainingImagesToLoad == 0) {
+							parallaxLayerImages.forEach((parallaxImage) => {
+								parallaxImage.classList.add(
+									"transition-opacity",
+									"duration-300"
+								);
+								parallaxImage.classList.remove("opacity-0");
+							});
+						}
+					};
+
+					// The image may be immediately available if it is in cache.
+					// In that case, the load event does not trigger
+					if (!parallaxImage.complete) {
+						parallaxImage.addEventListener("load", loadHandler);
+					} else {
+						loadHandler();
+					}
+				}
 			}
-		});
-	}
+		}
+	);
 </script>
 
 <style lang="scss">
-	.parallax-trees-filter {
+	.landscape-parallax-trees-filter {
 		filter: invert(1) sepia(0.66) brightness(8%)
 			drop-shadow(0 50px 25px rgb(0 0 0 / 0.33));
 	}
 
-	$bgLayersScrollDistances: (
+	$layerScrollDistances: (
 		trees: 25%,
 		ground-near: 15%,
 		fog: 25%,
@@ -119,13 +91,13 @@
 		celestial-body: 2%,
 	);
 
-	@each $name, $distance in $bgLayersScrollDistances {
-		.parallax-#{$name} {
+	@each $name, $distance in $layerScrollDistances {
+		.landscape-parallax-#{$name} {
 			// The extra width allows up to 25% distance in the
 			// horizontal axis without running out of image to show
 			@apply pointer-events-none left-[-25%] h-full w-[125%] max-w-none select-none object-cover;
 
-			@keyframes parallax-scroll-#{$name} {
+			@keyframes landscape-parallax-scroll-#{$name} {
 				from {
 					transform: translateX(0);
 				}
@@ -138,7 +110,7 @@
 				cubic-bezier(0.445, 0.05, 0.55, 0.95)
 				infinite
 				alternate
-				parallax-scroll-#{$name};
+				landscape-parallax-scroll-#{$name};
 		}
 	}
 </style>
