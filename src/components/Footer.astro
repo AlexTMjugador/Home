@@ -1,0 +1,168 @@
+---
+import { Icon } from "astro-iconify";
+import DarkButton from "./DarkButton.astro";
+import Dialog from "./Dialog.astro";
+
+interface LinkSection {
+	title: string;
+	links: Link[];
+}
+
+interface Link {
+	action: string | (() => void);
+	iconName: string;
+	label: string;
+}
+
+const linkSections: LinkSection[] = [
+	{
+		title: "Stay updated",
+		links: [
+			{
+				action: "/rss/feed.xml",
+				iconName: "material-symbols:rss-feed",
+				label: "Web feed",
+			},
+		],
+	},
+	{
+		title: "Contact me",
+		links: [
+			{
+				action: "mailto:alejandro.gonzalez.correo@gmail.com",
+				iconName: "vaadin:envelope",
+				label: "E-mail: alejandro.gonzalez.correo@gmail.com",
+			},
+			{
+				action: () =>
+					(
+						document.getElementById(
+							"discord-contact-modal"
+						) as HTMLDialogElement
+					).showModal(),
+				iconName: "simple-icons:discord",
+				label: "Discord: AlexTMjugador#5124",
+			},
+		],
+	},
+	{
+		title: "Social links",
+		links: [
+			{
+				action: "https://github.com/AlexTMjugador",
+				iconName: "bi:github",
+				label: "GitHub",
+			},
+			{
+				action:
+					"https://www.linkedin.com/in/alejandro-gonz%C3%A1lez-garc%C3%ADa-65ba93208/",
+				iconName: "bi:linkedin",
+				label: "LinkedIn",
+			},
+			{
+				action: "https://ko-fi.com/alextmjugador",
+				iconName: "cib:ko-fi",
+				label: "Ko-fi",
+			},
+		],
+	},
+];
+---
+
+<footer class="flex flex-wrap justify-center gap-x-12 border-t p-4">
+	<div
+		class="flex flex-col justify-center gap-y-2 max-md:mb-4 max-md:w-full max-md:items-center max-md:text-center md:grow md:basis-0"
+	>
+		<p>
+			Website designed with<Icon
+				name="mdi:heart"
+				class="w-4 mx-1 inline-block"
+				role="paragraph"
+				aria-label="love"
+			/>by myself
+		</p>
+		<p>
+			I used Astro and some other cool stuff you can check out <a
+				href="/thirdParty">here</a
+			>!
+		</p>
+	</div>
+	{
+		linkSections.map(({ title, links }) => (
+			<div class="flex flex-col gap-2 text-center max-sm:w-full max-sm:items-center">
+				<b class="text-lg">{title}</b>
+				<div class="flex flex-wrap justify-center gap-2">
+					{links.map(({ action, iconName, label }) =>
+						typeof action == "string" ? (
+							<a
+								href={action}
+								class="transition-all hover:scale-110"
+								aria-label={label}
+								title={label}
+							>
+								<Icon
+									name={iconName}
+									class="w-10 drop-shadow-sm"
+									role="presentation"
+								/>
+							</a>
+						) : (
+							<component-footer-button
+								class="cursor-pointer transition-all hover:scale-110"
+								role="button"
+								aria-label={label}
+								title={label}
+								data-action={action}
+								tabindex="0"
+							>
+								<Icon
+									name={iconName}
+									class="w-10 drop-shadow-sm"
+									role="presentation"
+								/>
+							</component-footer-button>
+						)
+					)}
+				</div>
+			</div>
+		))
+	}
+</footer>
+
+<Dialog id="discord-contact-modal">
+	<div class="max-w-md">
+		<h1 class="text-lg font-bold">Discord contact</h1>
+		<p class="mt-4">
+			Did you know that Discord has a hidden friend link feature, but it's not
+			fully functional yet?
+		</p>
+		<p class="mt-2">
+			In the meantime, please add me manually via my username and tag instead:
+		</p>
+		<pre class="mt-2 select-all text-center text-sm">AlexTMjugador#5124</pre>
+	</div>
+	<DarkButton slot="buttons">Close</DarkButton>
+</Dialog>
+
+<script>
+	customElements.define(
+		"component-footer-button",
+		class extends HTMLElement {
+			constructor() {
+				super();
+
+				const action = new Function(`return ${this.dataset.action}`)();
+
+				// Accessible button elements must handle click and keyboard events.
+				// See: https://www.w3.org/WAI/ARIA/apg/patterns/button/examples/button/
+				this.addEventListener("keydown", (ev) => {
+					if (ev.key == "Enter" || ev.key == " ") {
+						ev.preventDefault();
+						action();
+					}
+				});
+				this.addEventListener("click", action);
+			}
+		}
+	);
+</script>

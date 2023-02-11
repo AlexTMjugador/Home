@@ -1,0 +1,53 @@
+---
+import { Icon } from "astro-iconify";
+
+interface Link {
+	url: string;
+	caption: string;
+	iconName: string;
+	iconClasses?: string[];
+}
+
+const links: Link[] = [
+	{
+		caption: "Home",
+		url: "/",
+		iconName: "material-symbols:home-outline",
+	},
+	{
+		caption: "About me",
+		url: "/about",
+		iconName: "mdi:about-circle-outline",
+	},
+	{
+		caption: "Blog",
+		url: "/blog",
+		iconName: "icomoon-free:blog",
+		iconClasses: ["p-1"],
+	},
+];
+---
+
+<header class="sticky top-0 z-50 bg-brown-500 drop-shadow-xl">
+	<nav class="flex flex-wrap items-center justify-center text-center">
+		<ul class="flex max-w-lg grow flex-wrap bg-brown-400">
+			{
+				links.map(({ url, caption, iconName, iconClasses }) => (
+					<li class="shrink grow basis-0 border-b-4 border-transparent transition-colors hover:border-amber-400-accent">
+						<a
+							href={url}
+							class="flex h-full items-center justify-center gap-x-2 p-2 hover:no-underline"
+						>
+							<Icon
+								name={iconName}
+								class:list={["w-8", "drop-shadow-sm", ...(iconClasses ?? [])]}
+								role="presentation"
+							/>
+							<span class="font-semibold">{caption}</span>
+						</a>
+					</li>
+				))
+			}
+		</ul>
+	</nav>
+</header>
