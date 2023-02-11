@@ -1,0 +1,24 @@
+---
+export interface Props {
+	id: string;
+}
+
+const { id, ...props } = Astro.props;
+---
+
+<dialog {...props} id={id}>
+	<slot />
+	<form method="dialog" class="mt-4 flex justify-end">
+		<slot name="buttons" />
+	</form>
+</dialog>
+
+<style lang="scss">
+	dialog {
+		@apply rounded-md bg-amber-50 opacity-0 shadow-2xl transition-opacity duration-1000;
+	}
+
+	dialog[open] {
+		@apply opacity-100;
+	}
+</style>

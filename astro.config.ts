@@ -14,9 +14,15 @@ export default defineConfig({
 		? "http://localhost:3000"
 		: "https://www.example.com",
 	integrations: [
-		tailwind(),
+		tailwind({
+			config: {
+				applyBaseStyles: false,
+			},
+		}),
 		svelte(),
-		image(),
+		image({
+			serviceEntryPoint: "@astrojs/image/sharp",
+		}),
 		sitemap(),
 		mdx(),
 		robotsTxt(),

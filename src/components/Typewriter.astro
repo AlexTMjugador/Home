@@ -1,0 +1,121 @@
+---
+export interface Props {
+	text: string | string[];
+	loop?: boolean;
+	startDelay?: number;
+	keyPressDelay?: number;
+	displayTime?: number;
+	cursor?: string;
+}
+
+const {
+	text,
+	loop = false,
+	startDelay = 0,
+	keyPressDelay = 100,
+	displayTime = 2000,
+	cursor = "▎",
+} = Astro.props;
+---
+
+<component-typewriter
+	data-texts={text}
+	data-loop={loop}
+	data-start-delay={startDelay}
+	data-key-press-delay={keyPressDelay}
+	data-display-time={displayTime}
+	data-cursor={cursor}
+>
+	<span>{Array.isArray(text) ? text[0] : text}</span>
+</component-typewriter>
+
+<script>
+	customElements.define(
+		"component-typewriter",
+		class extends HTMLElement {
+			private readonly textContainer: HTMLSpanElement;
+
+			private readonly texts: string[];
+			private readonly loop: boolean;
+			private readonly keyPressDelay: number;
+			private readonly displayTime: number;
+			private readonly cursor: string;
+
+			private currentTextIndex = 0;
+			private currentTextPosition = 0;
+			private typeText = true;
+
+			constructor() {
+				super();
+
+				this.textContainer = this.querySelector("span") as HTMLSpanElement;
+
+				this.texts = this.dataset.texts?.split(",") ?? [];
+				this.loop = this.dataset.loop !== undefined;
+				this.keyPressDelay = Number(this.dataset.keyPressDelay);
+				this.displayTime = Number(this.dataset.displayTime);
+				this.cursor = this.dataset.cursor ?? "";
+
+				this.textContainer.textContent = "";
+
+				const animationFunction = () => {
+					const currentText = this.texts[this.currentTextIndex];
+					let nextKeystrokeDelay = this.keyPressDelay;
+
+					if (this.typeText) {
+						this.textContainer.textContent =
+							this.textContainer.textContent?.slice(
+								0,
+								-this.cursor.length
+							) as string;
+
+						this.textContainer.textContent += currentText.charAt(
+							this.currentTextPosition
+						);
+						this.textContainer.textContent += this.cursor;
+
+						++this.currentTextPosition;
+					} else {
+						this.textContainer.textContent =
+							this.textContainer.textContent?.slice(
+								0,
+								-this.cursor.length - 1
+							) as string;
+
+						this.textContainer.textContent += this.cursor;
+
+						--this.currentTextPosition;
+					}
+
+					if (this.currentTextPosition == currentText.length) {
+						// Just typed the entire string
+
+						if (!this.loop && this.currentTextIndex == this.texts.length - 1) {
+							this.textContainer.textContent =
+								this.textContainer.textContent?.slice(0, -this.cursor.length);
+
+							return; // Stop animating
+						}
+
+						nextKeystrokeDelay = this.displayTime;
+						this.typeText = false;
+					}
+
+					if (this.currentTextPosition == 0) {
+						// Just finished deleting the entire string
+
+						if (++this.currentTextIndex == this.texts.length) {
+							this.currentTextIndex = 0;
+						}
+
+						this.typeText = true;
+					}
+
+					setTimeout(animationFunction, nextKeystrokeDelay);
+				};
+
+				setTimeout(animationFunction, Number(this.dataset.startDelay));
+			}
+		}
+	);
+</script>

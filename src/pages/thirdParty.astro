@@ -1,0 +1,57 @@
+---
+import PageShell from "@layouts/PageShell.astro";
+import Footer from "@components/Footer.astro";
+import Header from "@components/Header.astro";
+import { LicensesReport } from "astro-licenses-report";
+---
+
+<PageShell title="Third-party stuff">
+	<Header />
+
+	<main class="container mx-auto">
+		<p>
+			It is wise to stand on the shoulders of giants. I have used the following
+			amazing libraries to create this website:
+		</p>
+
+		<LicensesReport depth={1} />
+	</main>
+
+	<Footer />
+</PageShell>
+
+<style lang="scss">
+	div.table {
+		@apply table-auto;
+		display: table;
+	}
+
+	div.thead {
+		@apply table-header-group align-middle;
+	}
+
+	div.tr {
+		@apply table-row;
+	}
+
+	div.tbody {
+		@apply table-row-group align-middle;
+	}
+
+	div.td,
+	div.th {
+		@apply table-cell p-1;
+	}
+
+	div.th {
+		@apply text-lg font-bold;
+	}
+
+	div.tbody div.tr div.td:first-child {
+		@apply select-all font-mono;
+	}
+
+	div.tbody div.tr div.td:nth-child(2) {
+		@apply italic;
+	}
+</style>

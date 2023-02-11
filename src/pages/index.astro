@@ -1,85 +1,36 @@
 ---
-import AnimatedParallaxLandscape from "@components/AnimatedLandscapeParallax.astro";
 import PageShell from "@layouts/PageShell.astro";
-import { Icon } from "astro-iconify";
+import AnimatedLandscapeParallax from "@components/AnimatedLandscapeParallax.astro";
+import Footer from "@components/Footer.astro";
+import Header from "@components/Header.astro";
+import Typewriter from "@components/Typewriter.astro";
 ---
 
 <PageShell title="Home">
-	<div class="flex h-screen flex-col">
-		<header class="sticky top-0 z-50 bg-stone-400 drop-shadow-xl">
-			<nav class="flex flex-wrap items-center justify-center text-center">
-				<div class="grow p-2 text-stone-100 max-md:w-full">
-					{import.meta.env.PUBLIC_SITE_TAGLINE}
-				</div>
-				<ul class="flex grow flex-wrap bg-amber-400">
-					<li
-						class="shrink grow basis-0 border-b-4 border-transparent transition-colors hover:border-amber-800"
-					>
-						<a
-							href="/"
-							class="flex h-full items-center justify-center gap-x-2 p-2"
-						>
-							<Icon
-								name="material-symbols:home-outline"
-								class="w-8 drop-shadow-sm text-stone-700"
-							/>
-							<div>Home</div>
-						</a>
-					</li>
-					<li
-						class="shrink grow basis-0 border-b-4 border-transparent transition-colors hover:border-amber-800"
-					>
-						<a
-							href="/about"
-							class="flex h-full items-center justify-center gap-x-2 p-2"
-						>
-							<Icon
-								name="mdi:about-circle-outline"
-								class="w-8 drop-shadow-sm text-stone-700"
-							/>
-							<div>About</div>
-						</a>
-					</li>
-					<li
-						class="shrink grow basis-0 border-b-4 border-transparent transition-colors hover:border-amber-800"
-					>
-						<a
-							href="/contact"
-							class="flex h-full items-center justify-center gap-x-2 p-2"
-						>
-							<Icon
-								name="mdi:envelope-outline"
-								class="w-8 drop-shadow-sm text-stone-700"
-							/>
-							<div>Contact</div>
-						</a>
-					</li>
-					<li
-						class="shrink grow basis-0 border-b-4 border-transparent transition-colors hover:border-amber-800"
-					>
-						<a
-							href="/blog"
-							class="flex h-full items-center justify-center gap-x-2 p-2"
-						>
-							<Icon
-								name="icomoon-free:blog"
-								class="p-1 w-8 drop-shadow-sm text-stone-700"
-							/>
-							<div>Blog</div>
-						</a>
-					</li>
-				</ul>
-				<div class="grow p-2 text-stone-100 max-md:w-full">Search</div>
-			</nav>
-		</header>
+	<div class="flex h-screen flex-col drop-shadow-xl">
+		<Header />
 
-		<AnimatedParallaxLandscape />
-
-		<footer class="absolute top-full">Placeholder</footer>
+		<AnimatedLandscapeParallax>
+			<main
+				class="absolute inset-0 flex select-none flex-col justify-center p-4 text-center"
+			>
+				<h1 class="text-4xl font-bold">
+					<Typewriter text="Alejandro González" keyPressDelay={150} />
+				</h1>
+				<h2 class="text-2xl font-light">
+					<Typewriter
+						text={[
+							"I make computers do stuff you didn't realize you wanted.",
+							"Your helping hand for all things computer.",
+							"From the reset vector to the pixels on your screen: I dabble with everything in between.",
+							"Computer engineering at the service of people like you.",
+						]}
+						loop={true}
+					/>
+				</h2>
+			</main>
+		</AnimatedLandscapeParallax>
 	</div>
-</PageShell>
 
-<!-- TODO finish the above and refactor to use components -->
-<!-- Monochromatic color palette for site: -->
-<!-- stone-400, stone-500, stone-700 -->
-<!-- amber-800, amber-300 -->
+	<Footer />
+</PageShell>
