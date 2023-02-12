@@ -15,8 +15,8 @@ jobs:
     timeout-minutes: 10
 
     # Only run if this is not a pull request, or for pull requests on forks
-    if: github.event_name != "pull_request" ||
-      github.event.pull_request.head.repo.full_name != "AlexTMjugador/Home"
+    if: github.event_name != 'pull_request' ||
+      github.event.pull_request.head.repo.full_name != 'AlexTMjugador/Home'
 
     steps:
       - name: 📥 Checkout source
