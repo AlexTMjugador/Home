@@ -6,6 +6,7 @@
 		"editorconfig.editorconfig",
 		"bradlc.vscode-tailwindcss",
 		"svelte.svelte-vscode",
-		"davidanson.vscode-markdownlint"
+		"davidanson.vscode-markdownlint",
+		"cschleiden.vscode-github-actions"
 	]
 }
