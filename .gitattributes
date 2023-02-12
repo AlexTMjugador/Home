@@ -1,0 +1,2 @@
+# Do not consider third-party XML stylesheet as our own
+/public/rss/pretty-feed-v3.xsl linguist-vendored
