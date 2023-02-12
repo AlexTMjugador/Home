@@ -53,6 +53,9 @@ jobs:
 
     needs: ci
 
+    permissions:
+      deployments: write
+
     steps:
       - name: 📥 Download website distribution bundle
         uses: actions/download-artifact@v3
