@@ -1,6 +1,7 @@
 ---
 import "src/base.css";
 import "@fontsource/exo-2";
+import exo2Url from "@fontsource/exo-2/files/exo-2-latin-400-normal.woff2";
 
 export interface Props {
 	title: string;
@@ -46,6 +47,14 @@ const {
 		/>
 
 		<link rel="canonical" href={new URL(Astro.url.pathname, Astro.site)} />
+
+		<link
+			rel="preload"
+			href={exo2Url}
+			as="font"
+			type="font/woff2"
+			crossorigin="anonymous"
+		/>
 	</head>
 	<body class="bg-brown-500 text-amber-50">
 		<slot />
