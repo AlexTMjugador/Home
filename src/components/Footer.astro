@@ -73,10 +73,19 @@ const linkSections: LinkSection[] = [
 	<div
 		class="flex flex-col justify-center gap-y-2 max-md:mb-4 max-md:w-full max-md:items-center max-md:text-center md:grow md:basis-0"
 	>
-		<!-- prettier-ignore -->
-		<p>Website designed with <Icon name="mdi:heart" class="w-4 inline-block" role="paragraph" aria-label="love"/> by myself</p>
-		<!-- prettier-ignore -->
-		<p>I used Astro and some other cool stuff you can check out <a href="/thirdParty">here</a>!</p>
+		<p
+			>Website designed with <Icon
+				name="mdi:heart"
+				class="w-4 inline-block"
+				role="paragraph"
+				aria-label="love"
+			/> by myself</p
+		>
+		<p
+			>I used Astro and some other cool stuff you can check out <a
+				href="/thirdParty">here</a
+			>!</p
+		>
 	</div>
 	{
 		linkSections.map(({ title, links }) => (
