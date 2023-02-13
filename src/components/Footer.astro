@@ -16,6 +16,16 @@ interface Link {
 
 const linkSections: LinkSection[] = [
 	{
+		title: "Get the source",
+		links: [
+			{
+				action: "https://github.com/AlexTMjugador/Home",
+				iconName: "ri:open-source-fill",
+				label: "Website source repository",
+			},
+		],
+	},
+	{
 		title: "Stay updated",
 		links: [
 			{
@@ -69,9 +79,9 @@ const linkSections: LinkSection[] = [
 ];
 ---
 
-<footer class="flex flex-wrap justify-center gap-x-12 border-t p-4">
+<footer class="flex flex-wrap justify-center gap-x-12 p-4">
 	<div
-		class="flex flex-col justify-center gap-y-2 max-md:mb-4 max-md:w-full max-md:items-center max-md:text-center md:grow md:basis-0"
+		class="flex flex-col justify-center gap-y-2 max-lg:mb-4 max-lg:w-full max-lg:items-center max-lg:text-center lg:grow lg:basis-0"
 	>
 		<p
 			>Website designed with <Icon
@@ -82,9 +92,9 @@ const linkSections: LinkSection[] = [
 			/> by myself</p
 		>
 		<p
-			>I used Astro and some other cool stuff you can check out <a
+			>This website uses some third-party stuff you can check out <a
 				href="/thirdParty">here</a
-			>!</p
+			></p
 		>
 	</div>
 	{
