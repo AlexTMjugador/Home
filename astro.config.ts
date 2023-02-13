@@ -31,6 +31,15 @@ export default defineConfig({
 			icon: "src/images/favicon.svg",
 			theme_color: "#3367D6",
 		}),
-		frontendistahtmlMinify(),
+		frontendistahtmlMinify({
+			htmlTerserMinifierOptions: {
+				decodeEntities: true,
+				removeComments: true,
+				sortAttributes: true,
+				sortClassName: true,
+				collapseWhitespace: true,
+				conservativeCollapse: true,
+			},
+		}),
 	],
 });
