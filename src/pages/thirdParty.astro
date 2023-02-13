@@ -10,11 +10,21 @@ import { LicensesReport } from "astro-licenses-report";
 
 	<main class="container mx-auto p-8">
 		<p
-			>It is wise to stand on the shoulders of giants. I have used the following
-			amazing libraries to create this website:</p
+			>It is wise to stand on the shoulders of giants. I would like to give
+			credit to the amazing libraries that have been used in the creation of
+			this site:</p
 		>
 
-		<LicensesReport depth={1} />
+		<LicensesReport depth={1} linkText="Homepage" />
+
+		<p
+			>The images used in the animated home page landscape background are part
+			of "The Dawn - Seamless Parallax Background" asset pack by <i>saukgp</i>,
+			available at <a
+				href="https://saurabhkgp.itch.io/the-dawn-parallax-background"
+				>https://saurabhkgp.itch.io/the-dawn-parallax-background</a
+			>.</p
+		>
 	</main>
 
 	<Footer />
@@ -22,29 +32,33 @@ import { LicensesReport } from "astro-licenses-report";
 
 <style lang="scss">
 	div.table {
-		@apply table-auto;
+		@apply table-auto p-4 text-sm;
 		display: table;
 	}
 
 	div.thead {
-		@apply table-header-group align-middle;
+		@apply table-header-group bg-brown-400 max-sm:hidden;
 	}
 
 	div.tr {
-		@apply table-row;
+		@apply table-row max-sm:flex max-sm:flex-col;
 	}
 
 	div.tbody {
-		@apply table-row-group align-middle;
+		@apply table-row-group break-all max-sm:flex max-sm:flex-col max-sm:gap-4;
 	}
 
 	div.td,
 	div.th {
-		@apply table-cell p-1;
+		@apply table-cell p-1 align-middle;
 	}
 
 	div.th {
 		@apply text-lg font-bold;
+	}
+
+	div.tbody div.tr div.td {
+		@apply sm:border-b;
 	}
 
 	div.tbody div.tr div.td:first-child {
