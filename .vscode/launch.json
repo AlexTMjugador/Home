@@ -2,10 +2,31 @@
 	"version": "0.2.0",
 	"configurations": [
 		{
-			"command": "npm run dev",
-			"name": "Development server",
+			"name": "Run development server",
+			"type": "node-terminal",
+			"request": "launch"
+		},
+		{
+			"name": "Run development server and open in Firefox",
 			"request": "launch",
-			"type": "node-terminal"
+			"runtimeExecutable": "npm",
+			"runtimeArgs": ["run", "dev"],
+			"type": "node",
+			"outputCapture": "std",
+			"serverReadyAction": {
+				"action": "startDebugging",
+				"name": "Open in Firefox",
+				"pattern": ".*Local.*http://localhost:([0-9]+)/",
+				"killOnServerStop": true
+			}
+		},
+		{
+			"name": "Open in Firefox",
+			"type": "firefox",
+			"request": "launch",
+			"reAttach": true,
+			"url": "http://localhost:3000/index.html",
+			"clearConsoleOnReload": true
 		}
 	]
 }
