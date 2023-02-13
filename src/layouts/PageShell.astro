@@ -33,13 +33,10 @@ const {
 			property="og:image"
 			content={thumbnailImagePath ?? "/icons/icon-512x512.png"}
 		/>
-		{
-			thumbnailImagePath ? (
-				<meta name="twitter:card" content="summary_large_image" />
-			) : (
-				<meta name="twitter:card" content="summary" />
-			)
-		}
+		<meta
+			name="twitter:card"
+			content={thumbnailImagePath ? "summary_large_image" : "summary"}
+		/>
 
 		<link
 			rel="alternate"
