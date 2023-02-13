@@ -29,7 +29,7 @@ export default defineConfig({
 		webmanifest({
 			name: "Alejandro's personal space",
 			icon: "src/images/favicon.svg",
-			theme_color: "#3367D6",
+			theme_color: "#795548",
 		}),
 		frontendistahtmlMinify({
 			htmlTerserMinifierOptions: {
