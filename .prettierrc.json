@@ -4,5 +4,6 @@
 		"prettier-plugin-svelte",
 		"prettier-plugin-tailwindcss"
 	],
-	"pluginSearchDirs": false
+	"pluginSearchDirs": false,
+	"htmlWhitespaceSensitivity": "strict"
 }
