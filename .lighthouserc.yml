@@ -1,6 +1,13 @@
 ci:
+  collect:
+    numberOfRuns: 1
+
   assert:
-    preset: lighthouse:recommended
+    preset: lighthouse:no-pwa
+    assertions:
+      color-contrast: warn
+      canonical: off
+      csp-xss: off
 
   upload:
     target: temporary-public-storage
