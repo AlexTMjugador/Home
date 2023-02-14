@@ -13,7 +13,7 @@ import critters from "astro-critters";
 export default defineConfig({
 	site: import.meta.env.DEV
 		? "http://localhost:3000"
-		: "https://www.example.com",
+		: "https://alegon.pages.dev",
 	integrations: [
 		tailwind({
 			config: {
