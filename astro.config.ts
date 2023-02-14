@@ -8,6 +8,7 @@ import mdx from "@astrojs/mdx";
 import robotsTxt from "astro-robots-txt";
 import webmanifest from "astro-webmanifest";
 import frontendistahtmlMinify from "@frontendista/astro-html-minify";
+import critters from "astro-critters";
 
 export default defineConfig({
 	site: import.meta.env.DEV
@@ -41,5 +42,6 @@ export default defineConfig({
 				conservativeCollapse: true,
 			},
 		}),
+		critters(),
 	],
 });
