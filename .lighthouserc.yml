@@ -8,6 +8,8 @@ ci:
       color-contrast: warn
       canonical: off
       csp-xss: off
+      # TODO remove this when this PR is merged: https://github.com/JulianCataldo/web-garden/pull/72
+      crawlable-anchors: off
 
   upload:
     target: temporary-public-storage
