@@ -45,6 +45,7 @@
 		"astro-og-canvas": "^0.1.6",
 		"astro-robots-txt": "^0.3.11",
 		"astro-webmanifest": "^0.4.3",
+		"reading-time": "^1.5.0",
 		"sass": "^1.58.0",
 		"sharp": "^0.31.3",
 		"svelte": "^3.55.1",

@@ -1,0 +1,40 @@
+---
+import PageShell from "@layouts/PageShell.astro";
+import Header from "@components/Header.astro";
+import Footer from "@components/Footer.astro";
+
+import { CollectionEntry, getCollection } from "astro:content";
+import readingTime from "reading-time";
+
+export interface Props {
+	blogPost: CollectionEntry<"blog">;
+}
+
+export async function getStaticPaths() {
+	return (await getCollection("blog")).map((blogPost) => ({
+		params: { postId: blogPost.slug },
+		props: { blogPost },
+	}));
+}
+
+const { blogPost } = Astro.props;
+const { Content } = await blogPost.render();
+---
+
+<PageShell
+	title={blogPost.data.title}
+	description={blogPost.data.description}
+	thumbnailImagePath={`/thumbs/post/${blogPost.slug}.png`}
+	author="Alejandro González"
+>
+	<Header />
+
+	<main class="min-h-screen">
+		<p>Publish date: {blogPost.data.publishDate.toDateString()}</p>
+		<p>{readingTime(blogPost.body).text}</p>
+		<h1>{blogPost.data.title}</h1>
+		<Content />
+	</main>
+
+	<Footer />
+</PageShell>

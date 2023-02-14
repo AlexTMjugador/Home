@@ -1,0 +1,30 @@
+---
+import PageShell from "@layouts/PageShell.astro";
+import Header from "@components/Header.astro";
+import Footer from "@components/Footer.astro";
+
+import { getCollection } from "astro:content";
+
+const blogPosts = await getCollection(
+	"blog",
+	(blogPost) => !blogPost.data.draft
+);
+---
+
+<PageShell title="Blog">
+	<Header />
+
+	<main class="min-h-screen"
+		><ul
+			>{
+				blogPosts.map((blogPost) => (
+					<li>
+						<a href={`/blog/${blogPost.slug}`}>{blogPost.data.title}</a>
+					</li>
+				))
+			}</ul
+		></main
+	>
+
+	<Footer />
+</PageShell>
