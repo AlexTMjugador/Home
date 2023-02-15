@@ -5,6 +5,7 @@ import Footer from "@components/Footer.astro";
 
 import { CollectionEntry, getCollection } from "astro:content";
 import readingTime from "reading-time";
+import { Icon } from "astro-iconify";
 
 export interface Props {
 	blogPost: CollectionEntry<"blog">;
@@ -19,6 +20,8 @@ export async function getStaticPaths() {
 
 const { blogPost } = Astro.props;
 const { Content } = await blogPost.render();
+
+const timeToRead = readingTime(blogPost.body);
 ---
 
 <PageShell
@@ -29,11 +32,56 @@ const { Content } = await blogPost.render();
 >
 	<Header />
 
-	<main class="min-h-screen">
-		<p>Publish date: {blogPost.data.publishDate.toDateString()}</p>
-		<p>{readingTime(blogPost.body).text}</p>
-		<h1>{blogPost.data.title}</h1>
-		<Content />
+	<main class="container mx-auto min-h-screen">
+		<article
+			class="prose mx-auto p-8 prose-a:font-bold prose-a:no-underline prose-figcaption:text-center prose-code:rounded-sm prose-code:bg-[#0d1117] prose-code:before:content-none prose-code:after:content-none prose-img:mx-auto"
+		>
+			<h1
+				class="break-words underline decoration-amber-400-accent sm:text-center"
+				>{blogPost.data.title}</h1
+			>
+
+			<div class="not-prose text-sm sm:flex sm:justify-center sm:gap-4">
+				<p class="flex items-center"
+					><Icon
+						name="material-symbols:calendar-month"
+						class="inline-block w-4 mr-1 shrink-0"
+						role="presentation"
+					/><time datetime={blogPost.data.publishDate.toISOString()}
+						>{blogPost.data.publishDate.toDateString()}</time
+					></p
+				>
+				<p class="flex items-center"
+					><Icon
+						name="mdi:clock"
+						class="inline-block w-4 mr-1 shrink-0"
+						role="presentation"
+					/><time datetime={`${timeToRead.minutes * 60}s`}
+						>{timeToRead.text}</time
+					></p
+				>
+			</div>
+
+			<Content />
+		</article>
+
+		<script
+			src="https://giscus.app/client.js"
+			data-repo={import.meta.env.PUBLIC_SITE_REPOSITORY}
+			data-repo-id="R_kgDOI4rDRg"
+			data-category="Blog posts"
+			data-category-id="DIC_kwDOI4rDRs4CUOqY"
+			data-mapping="title"
+			data-strict="1"
+			data-reactions-enabled="1"
+			data-emit-metadata="0"
+			data-input-position="top"
+			data-theme={new URL("giscus/theme.css", Astro.site)}
+			data-lang="en"
+			data-loading="lazy"
+			crossorigin="anonymous"
+			async
+		></script>
 	</main>
 
 	<Footer />

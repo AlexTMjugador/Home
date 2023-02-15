@@ -1,0 +1,131 @@
+/*!
+ * Modified from GitHub's theme, licensed under the MIT License
+ * Copyright (c) 2018 GitHub Inc.
+ * https://github.com/primer/primitives/blob/main/LICENSE
+ */
+main {
+	--color-prettylights-syntax-comment: #8b949e;
+	--color-prettylights-syntax-constant: #79c0ff;
+	--color-prettylights-syntax-entity: #d2a8ff;
+	--color-prettylights-syntax-storage-modifier-import: #c9d1d9;
+	--color-prettylights-syntax-entity-tag: #7ee787;
+	--color-prettylights-syntax-keyword: #ff7b72;
+	--color-prettylights-syntax-string: #a5d6ff;
+	--color-prettylights-syntax-variable: #ffa657;
+	--color-prettylights-syntax-brackethighlighter-unmatched: #f85149;
+	--color-prettylights-syntax-invalid-illegal-text: #f0f6fc;
+	--color-prettylights-syntax-invalid-illegal-bg: #8e1519;
+	--color-prettylights-syntax-carriage-return-text: #f0f6fc;
+	--color-prettylights-syntax-carriage-return-bg: #b62324;
+	--color-prettylights-syntax-string-regexp: #7ee787;
+	--color-prettylights-syntax-markup-list: #f2cc60;
+	--color-prettylights-syntax-markup-heading: #1f6feb;
+	--color-prettylights-syntax-markup-italic: #c9d1d9;
+	--color-prettylights-syntax-markup-bold: #c9d1d9;
+	--color-prettylights-syntax-markup-deleted-text: #ffdcd7;
+	--color-prettylights-syntax-markup-deleted-bg: #67060c;
+	--color-prettylights-syntax-markup-inserted-text: #aff5b4;
+	--color-prettylights-syntax-markup-inserted-bg: #033a16;
+	--color-prettylights-syntax-markup-changed-text: #ffdfb6;
+	--color-prettylights-syntax-markup-changed-bg: #5a1e02;
+	--color-prettylights-syntax-markup-ignored-text: #c9d1d9;
+	--color-prettylights-syntax-markup-ignored-bg: #1158c7;
+	--color-prettylights-syntax-meta-diff-range: #d2a8ff;
+	--color-prettylights-syntax-brackethighlighter-angle: #8b949e;
+	--color-prettylights-syntax-sublimelinter-gutter-mark: #484f58;
+	--color-prettylights-syntax-constant-other-reference-link: #a5d6ff;
+	--color-btn-text: #fff8e1;
+	--color-btn-bg: #8d6e6366;
+	--color-btn-border: #79554822;
+	--color-btn-shadow: transparent;
+	--color-btn-inset-shadow: transparent;
+	--color-btn-hover-bg: #8d6e63;
+	--color-btn-hover-border: #ffc400;
+	--color-btn-active-bg: #8d6e63;
+	--color-btn-active-border: #ffc400;
+	--color-btn-selected-bg: #8d6e63;
+	--color-btn-primary-text: #fff8e1;
+	--color-btn-primary-bg: #8d6e63;
+	--color-btn-primary-border: #79554822;
+	--color-btn-primary-shadow: transparent;
+	--color-btn-primary-inset-shadow: transparent;
+	--color-btn-primary-hover-bg: #8d6e63;
+	--color-btn-primary-hover-border: #ffc400;
+	--color-btn-primary-selected-bg: #8d6e63;
+	--color-btn-primary-selected-shadow: transparent;
+	--color-btn-primary-disabled-text: #fff8e177;
+	--color-btn-primary-disabled-bg: #8d6e6399;
+	--color-btn-primary-disabled-border: #79554822;
+	--color-fg-default: #fff8e1;
+	--color-fg-muted: #fff8e1;
+	--color-fg-subtle: #fff8e1;
+	--color-canvas-default: #795548;
+	--color-canvas-overlay: #8d6e63;
+	--color-canvas-inset: #8d6e63;
+	--color-canvas-subtle: #8d6e63;
+	--color-border-default: #fff8e1;
+	--color-border-muted: #fff8e1;
+	--color-neutral-muted: #fff8e166;
+	--color-accent-fg: #8d6e63;
+	--color-accent-emphasis: #ffc400;
+	--color-accent-muted: #fff8e1;
+	--color-accent-subtle: transparent;
+	--color-primer-shadow-inset: 0 0 transparent;
+	--color-primer-shadow-focus: 0 0 0 3px #8d6e63;
+
+	/*! Extensions from @primer/css/alerts/flash.scss */
+	--color-social-reaction-bg-hover: #8d6e63;
+	--color-social-reaction-bg-reacted-hover: #8d6e63;
+}
+
+.gsc-loading-image {
+	background: none;
+}
+
+.gsc-left-header em {
+	display: none;
+}
+
+.gsc-reactions-button:hover {
+	border-color: var(--color-accent-emphasis);
+	color: var(--color-accent-emphasis);
+}
+
+.gsc-social-reaction-summary-item.has-reacted {
+	color: var(--color-fg-muted);
+}
+
+.gsc-toolbar-item:hover,
+.gsc-reactions-button.popover-only:hover {
+	color: unset;
+}
+
+.link-primary:hover,
+.link-secondary:hover {
+	color: var(--color-fg-default);
+}
+
+a:hover,
+.gsc-comment-box-markdown-hint:hover {
+	text-decoration: underline;
+	text-decoration-color: var(--color-accent-emphasis);
+}
+
+input::placeholder,
+textarea::placeholder {
+	color: unset;
+}
+
+.markdown a {
+	font-weight: bold;
+	color: inherit;
+}
+
+.markdown code,
+.markdown tt,
+.markdown .highlight pre,
+.markdown pre,
+.gsc-reply-content .markdown pre,
+.gsc-reply-content.markdown .highlight pre {
+	background-color: #0d1117;
+}

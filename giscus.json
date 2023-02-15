@@ -1,0 +1,4 @@
+{
+	"origins": ["https://alegon.pages.dev"],
+	"originsRegex": ["http://localhost:[0-9]+"]
+}

@@ -9,6 +9,7 @@ import robotsTxt from "astro-robots-txt";
 import webmanifest from "astro-webmanifest";
 import frontendistahtmlMinify from "@frontendista/astro-html-minify";
 import critters from "astro-critters";
+import compress from "astro-compress";
 
 export default defineConfig({
 	site: import.meta.env.DEV
@@ -43,5 +44,8 @@ export default defineConfig({
 			},
 		}),
 		critters(),
+		compress({
+			path: ["./dist/giscus"],
+		}),
 	],
 });

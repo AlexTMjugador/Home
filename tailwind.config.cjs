@@ -17,6 +17,30 @@ module.exports = {
 			"brown-500": "#795548",
 			"amber-50": "#fff8e1",
 		},
+		extend: {
+			typography: ({ theme }) => ({
+				DEFAULT: {
+					css: {
+						"--tw-prose-body": theme("colors.amber-50"),
+						"--tw-prose-headings": theme("colors.amber-50"),
+						"--tw-prose-lead": theme("colors.amber-50"),
+						"--tw-prose-links": theme("colors.amber-50"),
+						"--tw-prose-bold": theme("colors.amber-50"),
+						"--tw-prose-counters": theme("colors.amber-50"),
+						"--tw-prose-bullets": theme("colors.amber-50"),
+						"--tw-prose-hr": theme("colors.amber-50"),
+						"--tw-prose-quotes": theme("colors.amber-50"),
+						"--tw-prose-quote-borders": theme("colors.amber-50"),
+						"--tw-prose-captions": theme("colors.amber-50"),
+						"--tw-prose-code": theme("colors.amber-50"),
+						"--tw-prose-pre-code": theme("colors.amber-50"),
+						"--tw-prose-pre-bg": theme("colors.amber-50"),
+						"--tw-prose-th-borders": theme("colors.amber-50"),
+						"--tw-prose-td-borders": theme("colors.amber-50"),
+					},
+				},
+			}),
+		},
 	},
-	plugins: [],
+	plugins: [require("@tailwindcss/typography")],
 };
