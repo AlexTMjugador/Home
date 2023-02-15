@@ -4,6 +4,7 @@
 
 interface ImportMetaEnv {
 	readonly PUBLIC_SITE_TAGLINE: string;
+	readonly PUBLIC_SITE_REPOSITORY: string;
 }
 
 interface ImportMeta {

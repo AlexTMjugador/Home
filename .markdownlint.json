@@ -1,0 +1,8 @@
+{
+	"line-length": false,
+	"ul-indent": { "indent": 2 },
+	"no-hard-tabs": false,
+	"no-inline-html": {
+		"allowed_elements": ["figure", "img", "picture", "figcaption"]
+	}
+}
