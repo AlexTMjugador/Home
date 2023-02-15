@@ -65,23 +65,25 @@ const timeToRead = readingTime(blogPost.body);
 			<Content />
 		</article>
 
-		<script
-			src="https://giscus.app/client.js"
-			data-repo={import.meta.env.PUBLIC_SITE_REPOSITORY}
-			data-repo-id="R_kgDOI4rDRg"
-			data-category="Blog posts"
-			data-category-id="DIC_kwDOI4rDRs4CUOqY"
-			data-mapping="title"
-			data-strict="1"
-			data-reactions-enabled="1"
-			data-emit-metadata="0"
-			data-input-position="top"
-			data-theme={new URL("giscus/theme.css", Astro.site)}
-			data-lang="en"
-			data-loading="lazy"
-			crossorigin="anonymous"
-			async
-		></script>
+		<div class="prose mx-auto p-8">
+			<script
+				src="https://giscus.app/client.js"
+				data-repo={import.meta.env.PUBLIC_SITE_REPOSITORY}
+				data-repo-id="R_kgDOI4rDRg"
+				data-category="Blog posts"
+				data-category-id="DIC_kwDOI4rDRs4CUOqY"
+				data-mapping="title"
+				data-strict="1"
+				data-reactions-enabled="1"
+				data-emit-metadata="0"
+				data-input-position="top"
+				data-theme={new URL("giscus/theme.css", Astro.site)}
+				data-lang="en"
+				data-loading="lazy"
+				crossorigin="anonymous"
+				async
+			></script>
+		</div>
 	</main>
 
 	<Footer />
