@@ -4,6 +4,6 @@
 
 @layer base {
 	a {
-		@apply font-semibold hover:underline;
+		@apply font-semibold hover:underline hover:decoration-amber-400-accent;
 	}
 }
