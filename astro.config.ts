@@ -45,7 +45,7 @@ export default defineConfig({
 		}),
 		critters(),
 		compress({
-			path: ["./dist/giscus"],
+			path: ["./dist/giscus", "./dist/icons", "./dist/thumbs"],
 		}),
 	],
 });
