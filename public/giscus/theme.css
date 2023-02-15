@@ -116,7 +116,7 @@ textarea::placeholder {
 	color: unset;
 }
 
-.markdown a {
+a {
 	font-weight: bold;
 	color: inherit;
 }
@@ -128,4 +128,8 @@ textarea::placeholder {
 .gsc-reply-content .markdown pre,
 .gsc-reply-content.markdown .highlight pre {
 	background-color: #0d1117;
+}
+
+.color-text-link {
+	color: inherit;
 }
