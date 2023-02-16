@@ -121,6 +121,12 @@ a {
 	color: inherit;
 }
 
+.gsc-reply-author a,
+.gsc-comment-author a,
+a.gsc-comment-box-markdown-hint {
+	font-weight: inherit;
+}
+
 .markdown code,
 .markdown tt,
 .markdown .highlight pre,
