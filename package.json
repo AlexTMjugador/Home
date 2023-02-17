@@ -17,6 +17,8 @@
 		"astro": "astro"
 	},
 	"devDependencies": {
+		"@types/markdown-it": "^12.2.3",
+		"@types/sanitize-html": "^2.8.0",
 		"@typescript-eslint/eslint-plugin": "^5.50.0",
 		"@typescript-eslint/parser": "^5.50.0",
 		"eslint": "^8.33.0",
@@ -47,7 +49,9 @@
 		"astro-og-canvas": "^0.1.6",
 		"astro-robots-txt": "^0.3.11",
 		"astro-webmanifest": "^0.4.3",
+		"markdown-it": "^13.0.1",
 		"reading-time": "^1.5.0",
+		"sanitize-html": "^2.9.0",
 		"sass": "^1.58.0",
 		"sharp": "^0.31.3",
 		"svelte": "^3.55.1",
