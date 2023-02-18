@@ -7,6 +7,7 @@ import type { GetStaticPathsOptions, Page } from "astro";
 import { CollectionEntry, getCollection } from "astro:content";
 import BlogPostPublishDate from "@components/BlogPostPublishDate.astro";
 import PaginationNavigationButton from "@components/PaginationNavigationButton.astro";
+import SearchBox from "@components/SearchBox.astro";
 
 export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
 	return paginate(
@@ -44,6 +45,14 @@ for (
 
 		<main class="container mx-auto flex grow flex-col justify-center p-8">
 			<section>
+				<h1 class="text-center text-2xl font-bold">Find posts</h1>
+
+				<div class="mx-auto mt-8 max-w-prose">
+					<SearchBox />
+				</div>
+			</section>
+
+			<section class="mt-8">
 				<h1 class="text-center text-2xl font-bold">Latest blog posts</h1>
 				<ul class="mt-8 flex flex-wrap items-center justify-evenly gap-4"
 					>{
