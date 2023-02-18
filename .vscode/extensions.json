@@ -5,7 +5,6 @@
 		"dbaeumer.vscode-eslint",
 		"editorconfig.editorconfig",
 		"bradlc.vscode-tailwindcss",
-		"svelte.svelte-vscode",
 		"davidanson.vscode-markdownlint",
 		"cschleiden.vscode-github-actions",
 		"firefox-devtools.vscode-firefox-debug"
