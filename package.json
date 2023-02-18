@@ -1,7 +1,17 @@
 {
-	"name": "@example/basics",
-	"type": "module",
+	"name": "personal-website",
+	"description": "Source package for my personal website",
+	"author": {
+		"name": "Alejandro González",
+		"email": "alejandro.gonzalez.correo@gmail.com",
+		"url": "https://alegon.pages.dev"
+	},
 	"version": "0.0.1",
+	"license": "GPL-3.0",
+	"repository": {
+		"url": "https://github.com/AlexTMjugador/Home"
+	},
+	"type": "module",
 	"private": true,
 	"engines": {
 		"node": ">=16.0.0 <19.0.0"
