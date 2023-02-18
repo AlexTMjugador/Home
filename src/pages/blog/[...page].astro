@@ -1,0 +1,116 @@
+---
+import PageShell from "@layouts/PageShell.astro";
+import Header from "@components/Header.astro";
+import Footer from "@components/Footer.astro";
+
+import type { GetStaticPathsOptions, Page } from "astro";
+import { CollectionEntry, getCollection } from "astro:content";
+import BlogPostPublishDate from "@components/BlogPostPublishDate.astro";
+import PaginationNavigationButton from "@components/PaginationNavigationButton.astro";
+
+export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
+	return paginate(
+		await getCollection("blog", (blogPost) => !blogPost.data.draft),
+		{ pageSize: 10 }
+	);
+}
+
+const { page } = Astro.props as { page: Page<CollectionEntry<"blog">> };
+
+const adjacentPagesCount = 3;
+
+const totalPages = page.lastPage;
+const firstAdjacentPage = page.currentPage - adjacentPagesCount;
+const lastAdjacentPage = page.currentPage + adjacentPagesCount;
+
+const adjacentPagesToTheLeft = [];
+for (let i = Math.max(firstAdjacentPage, 2); i < page.currentPage; ++i) {
+	adjacentPagesToTheLeft.push(i);
+}
+
+const adjacentPagesToTheRight = [];
+for (
+	let i = page.currentPage + 1;
+	i < page.lastPage && i <= lastAdjacentPage;
+	++i
+) {
+	adjacentPagesToTheRight.push(i);
+}
+---
+
+<PageShell title="Blog">
+	<Header />
+
+	<main class="container mx-auto flex min-h-screen flex-col justify-center p-8">
+		<section>
+			<h1 class="text-center text-2xl font-bold">Latest blog posts</h1>
+			<ul class="mt-8 flex flex-wrap items-center justify-evenly gap-4"
+				>{
+					page.data.map((blogPost) => (
+						<li>
+							<a
+								href={`/blog/post/${blogPost.slug}`}
+								class="hover:no-underline"
+							>
+								<article class="max-w-md rounded-md border bg-brown-400 p-4 shadow-lg transition-all hover:scale-105">
+									<h1 class="text-xl font-bold underline decoration-amber-400-accent">
+										{blogPost.data.title}
+									</h1>
+									<p>
+										<BlogPostPublishDate date={blogPost.data.publishDate} />
+									</p>
+									<p class="mt-2">{blogPost.data.description}</p>
+								</article>
+							</a>
+						</li>
+					))
+				}</ul
+			>
+			{
+				totalPages > 1 && (
+					<div class="mt-8 text-center">
+						<p>
+							Posts {page.start + 1} to {page.end + 1} ({page.total} total)
+						</p>
+						<div class="mt-4 flex items-center justify-center gap-4">
+							{
+								<PaginationNavigationButton
+									url={page.url.prev}
+									direction="left"
+								/>
+							}
+							{totalPages > 2 && (
+								<>
+									{page.currentPage != 1 && <a href="/blog">1</a>}
+									{adjacentPagesToTheLeft[0] > 2 && (
+										<span class="select-none">…</span>
+									)}
+									{adjacentPagesToTheLeft.map((pageNumber) => (
+										<a href={`/blog/${pageNumber}`}>{pageNumber}</a>
+									))}
+									<p class="text-xl font-bold">{page.currentPage}</p>
+									{adjacentPagesToTheRight.map((pageNumber) => (
+										<a href={`/blog/${pageNumber}`}>{pageNumber}</a>
+									))}
+									{adjacentPagesToTheRight[adjacentPagesToTheRight.length - 1] <
+										page.lastPage - 1 && <span class="select-none">…</span>}
+									{page.currentPage != page.lastPage && (
+										<a href={`/blog/${page.lastPage}`}>{page.lastPage}</a>
+									)}
+								</>
+							)}
+							{
+								<PaginationNavigationButton
+									url={page.url.next}
+									direction="right"
+								/>
+							}
+						</div>
+					</div>
+				)
+			}
+		</section>
+	</main>
+
+	<Footer />
+</PageShell>

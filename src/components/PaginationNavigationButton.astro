@@ -1,0 +1,25 @@
+---
+import { Icon } from "astro-iconify";
+
+export type Direction = "left" | "right";
+
+export interface Props {
+	url: string | undefined;
+	direction: Direction;
+}
+
+const { url, direction } = Astro.props;
+---
+
+<a
+	href={url}
+	class:list={[
+		"block",
+		"w-8",
+		...(url
+			? ["hover:text-amber-400-accent", "transition-all"]
+			: ["text-brown-400"]),
+	]}
+>
+	<Icon name={`mdi:chevron-${direction}`} />
+</a>

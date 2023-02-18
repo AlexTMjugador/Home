@@ -6,6 +6,7 @@ import Footer from "@components/Footer.astro";
 import { CollectionEntry, getCollection } from "astro:content";
 import readingTime from "reading-time";
 import { Icon } from "astro-iconify";
+import BlogPostPublishDate from "@components/BlogPostPublishDate.astro";
 
 export interface Props {
 	blogPost: CollectionEntry<"blog">;
@@ -27,7 +28,7 @@ const timeToRead = readingTime(blogPost.body);
 <PageShell
 	title={blogPost.data.title}
 	description={blogPost.data.description}
-	thumbnailImagePath={`/thumbs/post/${blogPost.slug}.png`}
+	thumbnailImagePath={`/thumbs/blog/post/${blogPost.slug}.png`}
 	author="Alejandro González"
 >
 	<Header />
@@ -43,13 +44,7 @@ const timeToRead = readingTime(blogPost.body);
 
 			<div class="not-prose text-sm sm:flex sm:justify-center sm:gap-4">
 				<p class="flex items-center"
-					><Icon
-						name="material-symbols:calendar-month"
-						class="inline-block w-4 mr-1 shrink-0"
-						role="presentation"
-					/><time datetime={blogPost.data.publishDate.toISOString()}
-						>{blogPost.data.publishDate.toDateString()}</time
-					></p
+					><BlogPostPublishDate date={blogPost.data.publishDate} /></p
 				>
 				<p class="flex items-center"
 					><Icon
