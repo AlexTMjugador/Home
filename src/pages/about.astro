@@ -2,12 +2,18 @@
 import PageShell from "@layouts/PageShell.astro";
 import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
+import { Icon } from "astro-iconify";
 ---
 
 <PageShell title="About me">
-	<Header />
+	<div class="flex min-h-screen flex-col">
+		<Header />
 
-	<main class="container mx-auto h-screen text-center">In construction</main>
+		<main class="container mx-auto flex grow flex-col items-center justify-center text-center p-8">
+			<Icon name="emojione-monotone:building-construction" class="max-w-md" />
+			<h1 class="text-2xl font-bold">Coming soon™</h1>
+		</main>
 
-	<Footer />
+		<Footer />
+	</div>
 </PageShell>
