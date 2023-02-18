@@ -36,6 +36,7 @@ const timeToRead = readingTime(blogPost.body);
 
 		<main class="container mx-auto grow">
 			<article
+				data-pagefind-body
 				class="prose mx-auto p-8 prose-a:font-bold prose-a:no-underline prose-figcaption:text-center prose-code:rounded-sm prose-code:bg-[#0d1117] prose-code:before:content-none prose-code:after:content-none prose-img:mx-auto"
 			>
 				<h1
@@ -43,7 +44,10 @@ const timeToRead = readingTime(blogPost.body);
 					>{blogPost.data.title}</h1
 				>
 
-				<div class="not-prose text-sm sm:flex sm:justify-center sm:gap-4">
+				<div
+					class="not-prose text-sm sm:flex sm:justify-center sm:gap-4"
+					data-pagefind-ignore
+				>
 					<p class="flex items-center"
 						><BlogPostPublishDate date={blogPost.data.publishDate} /></p
 					>
