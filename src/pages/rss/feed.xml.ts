@@ -26,7 +26,7 @@ export async function get(context: APIContext) {
 				description: blogPost.data.description,
 				pubDate: blogPost.data.publishDate,
 				content: sanitizeHtml(markdownParser.render(blogPost.body)),
-				link: `/blog/${blogPost.slug}/`,
+				link: `/blog/post/${blogPost.slug}/`,
 			})
 		),
 	});

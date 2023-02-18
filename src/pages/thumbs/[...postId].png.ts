@@ -12,7 +12,7 @@ export const { getStaticPaths, get } = OGImageRoute({
 		pagesObject[blogPost.slug] = blogPost;
 		return pagesObject;
 	}, {} as Record<string, CollectionEntry<"blog">>),
-	getSlug: (postSlug) => `post/${postSlug}`,
+	getSlug: (postSlug) => `blog/post/${postSlug}`,
 	getImageOptions: (_, page: CollectionEntry<"blog">) => {
 		const title = trimAndEllideAfterLastWord(page.data.title);
 		const description = trimAndEllideAfterLastWord(page.data.description);
