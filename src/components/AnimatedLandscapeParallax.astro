@@ -51,11 +51,19 @@ const parallaxLayers = {
 
 				this.remainingImagesToLoad = parallaxLayerImages.length;
 
+				console.log("[Landscape parallax] Total images to load:", this.remainingImagesToLoad);
+
 				for (const parallaxImage of parallaxLayerImages) {
 					parallaxImage.classList.add("opacity-0");
 
+					console.log("[Landscape parallax] Hiding:", parallaxImage);
+
 					const loadHandler = () => {
+						console.log("[Landscape parallax] Loaded one image. Reamining:", this.remainingImagesToLoad - 1);
+
 						if (--this.remainingImagesToLoad == 0) {
+							console.log("[Landscape parallax] Showing all images");
+
 							parallaxLayerImages.forEach((parallaxImage) => {
 								parallaxImage.classList.add(
 									"transition-opacity",
@@ -71,6 +79,8 @@ const parallaxLayers = {
 					if (!parallaxImage.complete) {
 						parallaxImage.addEventListener("load", loadHandler);
 					} else {
+						console.log("[Landscape parallax] Already loaded:", parallaxImage);
+
 						loadHandler();
 					}
 				}
