@@ -1,7 +1,6 @@
 import { defineConfig } from "astro/config";
 
 import tailwind from "@astrojs/tailwind";
-import svelte from "@astrojs/svelte";
 import image from "@astrojs/image";
 import sitemap from "@astrojs/sitemap";
 import mdx from "@astrojs/mdx";
@@ -33,7 +32,6 @@ export default defineConfig({
 				applyBaseStyles: false,
 			},
 		}),
-		svelte(),
 		image({
 			serviceEntryPoint: "@astrojs/image/sharp",
 		}),
