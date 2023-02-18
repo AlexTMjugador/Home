@@ -31,55 +31,57 @@ const timeToRead = readingTime(blogPost.body);
 	thumbnailImagePath={`/thumbs/blog/post/${blogPost.slug}.png`}
 	author="Alejandro González"
 >
-	<Header />
+	<div class="flex min-h-screen flex-col">
+		<Header />
 
-	<main class="container mx-auto min-h-screen">
-		<article
-			class="prose mx-auto p-8 prose-a:font-bold prose-a:no-underline prose-figcaption:text-center prose-code:rounded-sm prose-code:bg-[#0d1117] prose-code:before:content-none prose-code:after:content-none prose-img:mx-auto"
-		>
-			<h1
-				class="break-words underline decoration-amber-400-accent sm:text-center"
-				>{blogPost.data.title}</h1
+		<main class="container mx-auto grow">
+			<article
+				class="prose mx-auto p-8 prose-a:font-bold prose-a:no-underline prose-figcaption:text-center prose-code:rounded-sm prose-code:bg-[#0d1117] prose-code:before:content-none prose-code:after:content-none prose-img:mx-auto"
 			>
+				<h1
+					class="break-words underline decoration-amber-400-accent sm:text-center"
+					>{blogPost.data.title}</h1
+				>
 
-			<div class="not-prose text-sm sm:flex sm:justify-center sm:gap-4">
-				<p class="flex items-center"
-					><BlogPostPublishDate date={blogPost.data.publishDate} /></p
-				>
-				<p class="flex items-center"
-					><Icon
-						name="mdi:clock"
-						class="inline-block w-4 mr-1 shrink-0"
-						role="presentation"
-					/><time datetime={`${timeToRead.minutes * 60}s`}
-						>{timeToRead.text}</time
-					></p
-				>
+				<div class="not-prose text-sm sm:flex sm:justify-center sm:gap-4">
+					<p class="flex items-center"
+						><BlogPostPublishDate date={blogPost.data.publishDate} /></p
+					>
+					<p class="flex items-center"
+						><Icon
+							name="mdi:clock"
+							class="inline-block w-4 mr-1 shrink-0"
+							role="presentation"
+						/><time datetime={`${timeToRead.minutes * 60}s`}
+							>{timeToRead.text}</time
+						></p
+					>
+				</div>
+
+				<Content />
+			</article>
+
+			<div class="mx-auto max-w-prose p-8">
+				<script
+					src="https://giscus.app/client.js"
+					data-repo={import.meta.env.PUBLIC_SITE_REPOSITORY}
+					data-repo-id="R_kgDOI4rDRg"
+					data-category="Blog posts"
+					data-category-id="DIC_kwDOI4rDRs4CUOqY"
+					data-mapping="title"
+					data-strict="1"
+					data-reactions-enabled="1"
+					data-emit-metadata="0"
+					data-input-position="top"
+					data-theme={new URL("giscus/theme.css", Astro.site)}
+					data-lang="en"
+					data-loading="lazy"
+					crossorigin="anonymous"
+					async
+				></script>
 			</div>
-
-			<Content />
-		</article>
-
-		<div class="mx-auto max-w-prose p-8">
-			<script
-				src="https://giscus.app/client.js"
-				data-repo={import.meta.env.PUBLIC_SITE_REPOSITORY}
-				data-repo-id="R_kgDOI4rDRg"
-				data-category="Blog posts"
-				data-category-id="DIC_kwDOI4rDRs4CUOqY"
-				data-mapping="title"
-				data-strict="1"
-				data-reactions-enabled="1"
-				data-emit-metadata="0"
-				data-input-position="top"
-				data-theme={new URL("giscus/theme.css", Astro.site)}
-				data-lang="en"
-				data-loading="lazy"
-				crossorigin="anonymous"
-				async
-			></script>
-		</div>
-	</main>
+		</main>
+	</div>
 
 	<Footer />
 </PageShell>
