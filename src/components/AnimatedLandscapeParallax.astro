@@ -1,5 +1,10 @@
 ---
-import { Picture } from "@astrojs/image/components";
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
+import {
+	Picture,
+	PictureComponentLocalImageProps,
+} from "@astrojs/image/components";
 
 const parallaxLayers = {
 	"celestial-body": ["sepia"],
@@ -10,29 +15,51 @@ const parallaxLayers = {
 	"ground-near": ["brightness-125"],
 	trees: ["landscape-parallax-trees-filter"],
 };
+
+const landscapeParallaxPictureProps = (
+	imageName: string,
+	imageClasses: string[],
+	hideByDefault: boolean
+): PictureComponentLocalImageProps => ({
+	src: import(`../images/landscape-parallax/${imageName}.png`),
+	alt: "",
+	formats: ["webp", "png"],
+	widths: [800, 1280, 1920],
+	sizes: undefined as unknown as string,
+	decoding: undefined,
+	loading: undefined,
+	width: 1980,
+	height: 1080,
+	"class:list": [
+		`landscape-parallax-${imageName}`,
+		"absolute",
+		...(hideByDefault ? ["opacity-0"] : []),
+		...imageClasses,
+	],
+});
 ---
 
 <component-landscape-parallax class="relative h-full overflow-hidden">
 	{
 		Object.entries(parallaxLayers).map(([imageName, imageClasses]) => (
-			<Picture
-				src={import(`../images/landscape-parallax/${imageName}.png`)}
-				alt=""
-				formats={["webp", "png"]}
-				widths={[800, 1280, 1920]}
-				sizes={undefined as unknown as string}
-				aspectRatio={undefined}
-				background={undefined}
-				decoding={undefined}
-				loading={undefined}
-				width={1980}
-				height={1080}
-				class:list={[
-					`landscape-parallax-${imageName}`,
-					"absolute",
-					...imageClasses,
-				]}
-			/>
+			<>
+				<noscript>
+					<Picture
+						{...(landscapeParallaxPictureProps(
+							imageName,
+							imageClasses,
+							false
+						) as any)}
+					/>
+				</noscript>
+				<Picture
+					{...(landscapeParallaxPictureProps(
+						imageName,
+						imageClasses,
+						true
+					) as any)}
+				/>
+			</>
 		))
 	}
 	<slot />
@@ -47,29 +74,13 @@ const parallaxLayers = {
 			constructor() {
 				super();
 
-				const parallaxLayerImages = this.querySelectorAll("img");
+				const parallaxLayerImages = this.querySelectorAll("picture > img");
 
 				this.remainingImagesToLoad = parallaxLayerImages.length;
 
-				console.log(
-					"[Landscape parallax] Total images to load:",
-					this.remainingImagesToLoad
-				);
-
 				for (const parallaxImage of parallaxLayerImages) {
-					parallaxImage.classList.add("opacity-0");
-
-					console.log("[Landscape parallax] Hiding:", parallaxImage);
-
 					const loadHandler = () => {
-						console.log(
-							"[Landscape parallax] Loaded one image. Reamining:",
-							this.remainingImagesToLoad - 1
-						);
-
 						if (--this.remainingImagesToLoad == 0) {
-							console.log("[Landscape parallax] Showing all images");
-
 							parallaxLayerImages.forEach((parallaxImage) => {
 								parallaxImage.classList.add(
 									"transition-opacity",
@@ -82,11 +93,9 @@ const parallaxLayers = {
 
 					// The image may be immediately available if it is in cache.
 					// In that case, the load event does not trigger
-					if (!parallaxImage.complete) {
-						parallaxImage.addEventListener("load", loadHandler);
+					if (!(parallaxImage as HTMLImageElement).complete) {
+						parallaxImage.addEventListener("load", loadHandler, { once: true });
 					} else {
-						console.log("[Landscape parallax] Already loaded:", parallaxImage);
-
 						loadHandler();
 					}
 				}
@@ -96,7 +105,7 @@ const parallaxLayers = {
 </script>
 
 <style lang="scss">
-	.landscape-parallax-trees-filter {
+	:global(.landscape-parallax-trees-filter) {
 		filter: invert(1) sepia(0.66) brightness(8%)
 			drop-shadow(0 50px 25px rgb(0 0 0 / 0.33));
 	}
@@ -112,7 +121,7 @@ const parallaxLayers = {
 	);
 
 	@each $name, $distance in $layerScrollDistances {
-		.landscape-parallax-#{$name} {
+		:global(.landscape-parallax-#{$name}) {
 			// The extra width allows up to 25% distance in the
 			// horizontal axis without running out of image to show
 			@apply pointer-events-none left-[-25%] h-full w-[125%] max-w-none select-none object-cover;
