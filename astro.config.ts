@@ -19,9 +19,7 @@ import critters from "astro-critters";
 import compress from "astro-compress";
 
 export default defineConfig({
-	site: import.meta.env.DEV
-		? "http://localhost:3000"
-		: "https://alegon.pages.dev",
+	site: import.meta.env.DEV ? "http://localhost:3000" : "https://alegon.dev",
 	build: {
 		format: "file",
 		assets: "assets",
