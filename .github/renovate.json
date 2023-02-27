@@ -3,6 +3,7 @@
 	"extends": ["config:base", ":disableDependencyDashboard"],
 	"addLabels": ["dependencies"],
 	"automergeType": "branch",
+	"rangeStrategy": "bump",
 	"packageRules": [
 		{
 			"matchUpdateTypes": ["minor", "patch", "pin", "digest"],
