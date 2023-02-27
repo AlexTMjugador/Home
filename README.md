@@ -127,7 +127,7 @@ This project distributes its source artifacts across folders as follows:
         ├── blog
         │   └── post: route for rendering blog posts.
         ├── rss: page to generate the site blog posts RSS feed.
-        └── thumbs: page to procedurally generate Open Graph thumbnail images for each blog post.
+        └── thumbs: page to procedurally generated Open Graph thumbnail images for each blog post.
 ```
 
 ## ⚖️ License
