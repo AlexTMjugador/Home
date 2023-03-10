@@ -34,6 +34,7 @@ export default defineConfig({
 			serviceEntryPoint: "@astrojs/image/sharp",
 		}),
 		sitemap(),
+		// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 		// @ts-ignore Workaround for https://github.com/withastro/astro/issues/6475
 		mdx(),
 		robotsTxt(),
