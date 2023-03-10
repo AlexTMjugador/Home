@@ -34,6 +34,7 @@ export default defineConfig({
 			serviceEntryPoint: "@astrojs/image/sharp",
 		}),
 		sitemap(),
+		// @ts-ignore Workaround for https://github.com/withastro/astro/issues/6475
 		mdx(),
 		robotsTxt(),
 		webmanifest({
