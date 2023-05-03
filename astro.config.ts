@@ -6,13 +6,6 @@ import sitemap from "@astrojs/sitemap";
 import mdx from "@astrojs/mdx";
 import robotsTxt from "astro-robots-txt";
 import webmanifest from "astro-webmanifest";
-// VS Code shows an error here, but tsc doesn't and it works fine when building.
-// Moreover, this is the documented way of importing the astro-pagefind
-// extension. Welcome to web dev, the place where there are a gazillion
-// standards for importing code that relies on flakey environment assumptions
-// all the time :)
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
 import pagefind from "astro-pagefind";
 import frontendistahtmlMinify from "@frontendista/astro-html-minify";
 import critters from "astro-critters";
@@ -34,8 +27,6 @@ export default defineConfig({
 			serviceEntryPoint: "@astrojs/image/sharp",
 		}),
 		sitemap(),
-		// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-		// @ts-ignore Workaround for https://github.com/withastro/astro/issues/6475
 		mdx(),
 		robotsTxt(),
 		webmanifest({
