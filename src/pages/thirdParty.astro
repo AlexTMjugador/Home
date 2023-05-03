@@ -15,8 +15,12 @@ import { LicensesReport } from "astro-licenses-report";
 			this site:</p
 		>
 
-		{/* @ts-expect-error 2322 */}
-		<LicensesReport depth={1} linkText="Homepage" />
+		{
+			(
+				// @ts-expect-error 2322 Necessary because moduleResolution = node16 for pagefind integration
+				<LicensesReport depth={1} linkText="Homepage" />
+			)
+		}
 
 		<p
 			>The images used in the animated home page landscape background are part
