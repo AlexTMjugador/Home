@@ -8,8 +8,6 @@ ci:
       color-contrast: warn
       canonical: off
       csp-xss: off
-      # TODO remove this when this PR is merged: https://github.com/JulianCataldo/web-garden/pull/72
-      crawlable-anchors: off
       # Lints we can't fix in blog pages. Make sure these don't propagate to
       # other pages!
       offscreen-images: warn
