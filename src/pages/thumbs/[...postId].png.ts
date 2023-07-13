@@ -3,15 +3,18 @@ import { CollectionEntry, getCollection } from "astro:content";
 
 const blogPosts = await getCollection(
 	"blog",
-	(blogPost) => !blogPost.data.draft
+	(blogPost) => !blogPost.data.draft,
 );
 
 export const { getStaticPaths, get } = OGImageRoute({
 	param: "postId",
-	pages: blogPosts.reduce((pagesObject, blogPost) => {
-		pagesObject[blogPost.slug] = blogPost;
-		return pagesObject;
-	}, {} as Record<string, CollectionEntry<"blog">>),
+	pages: blogPosts.reduce(
+		(pagesObject, blogPost) => {
+			pagesObject[blogPost.slug] = blogPost;
+			return pagesObject;
+		},
+		{} as Record<string, CollectionEntry<"blog">>,
+	),
 	getSlug: (postSlug: string) => `blog/post/${postSlug}`,
 	getImageOptions: (_: string, page: CollectionEntry<"blog">) => {
 		const title = trimAndEllideAfterLastWord(page.data.title);
@@ -21,7 +24,7 @@ export const { getStaticPaths, get } = OGImageRoute({
 		const descriptionFontSize = fitFontSizeForText(
 			description,
 			26,
-			Math.min(38, titleFontSize)
+			Math.min(38, titleFontSize),
 		);
 
 		return {
@@ -65,7 +68,7 @@ export const { getStaticPaths, get } = OGImageRoute({
 function trimAndEllideAfterLastWord(
 	text: string,
 	maxLength = 200, // ~ 3 lines of text (see comments at fitFontSizeForText), after adjustments for a minimum font size of 26
-	ellipsisMarker = "..."
+	ellipsisMarker = "...",
 ) {
 	text = text.trim();
 
@@ -75,7 +78,7 @@ function trimAndEllideAfterLastWord(
 
 	let lastWordSeparator = text.lastIndexOf(
 		" ",
-		maxLength - ellipsisMarker.length
+		maxLength - ellipsisMarker.length,
 	);
 
 	lastWordSeparator =
@@ -89,7 +92,7 @@ function trimAndEllideAfterLastWord(
 function fitFontSizeForText(
 	text: string,
 	minimumSize: number,
-	initialSize: number
+	initialSize: number,
 ) {
 	// 16px ~= 12pt, so in a 1200px wide image containing text at 36pt, 1200 /
 	// (72 * 1.33) ~= 12.5 * 2 ~= 25 characters fit there (a character is assumed
@@ -97,6 +100,6 @@ function fitFontSizeForText(
 	// works for our purposes
 	return Math.max(
 		minimumSize,
-		Math.round(initialSize * Math.min(25 / text.length, 1))
+		Math.round(initialSize * Math.min(25 / text.length, 1)),
 	);
 }

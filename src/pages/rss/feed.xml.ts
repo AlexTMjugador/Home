@@ -10,7 +10,7 @@ type RSSFeedItem = Extract<RSSOptions["items"], unknown[]>[number];
 export async function get(context: APIContext) {
 	const blogPosts = await getCollection(
 		"blog",
-		(blogPost) => !blogPost.data.draft
+		(blogPost) => !blogPost.data.draft,
 	);
 
 	const markdownParser = new MarkdownIt();
@@ -27,7 +27,7 @@ export async function get(context: APIContext) {
 				pubDate: blogPost.data.publishDate,
 				content: sanitizeHtml(markdownParser.render(blogPost.body)),
 				link: `/blog/post/${blogPost.slug}`,
-			})
+			}),
 		),
 	});
 }
