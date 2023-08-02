@@ -45,7 +45,7 @@
 		"@astrojs/rss": "^2.4.3",
 		"@astrojs/sitemap": "^2.0.1",
 		"@astrojs/tailwind": "^4.0.0",
-		"@fontsource/exo-2": "^5.0.5",
+		"@fontsource/exo-2": "^5.0.6",
 		"@frontendista/astro-html-minify": "^1.0.7",
 		"@tailwindcss/typography": "^0.5.9",
 		"@wbmnky/license-report-generator": "^2.1.3",
