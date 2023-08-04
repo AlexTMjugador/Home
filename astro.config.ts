@@ -34,7 +34,7 @@ export default defineConfig({
 		}),
 		pagefind(),
 		frontendistahtmlMinify({
-			htmlTerserMinifierOptions: {
+			html: {
 				decodeEntities: true,
 				removeComments: true,
 				sortAttributes: true,
