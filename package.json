@@ -47,7 +47,7 @@
 		"@astrojs/tailwind": "^4.0.0",
 		"@fontsource/exo-2": "^5.0.8",
 		"@frontendista/astro-html-minify": "^2.0.0",
-		"astro-compress": "^2.0.8",
+		"astro-compress": "^2.0.12",
 		"astro-critters": "^2.0.7",
 		"@tailwindcss/typography": "^0.5.9",
 		"@wbmnky/license-report-generator": "^2.1.3",
