@@ -43,7 +43,7 @@
 		"@astrojs/image": "^0.18.0",
 		"@astrojs/mdx": "^0.19.7",
 		"@astrojs/rss": "^2.4.4",
-		"@astrojs/sitemap": "^2.0.2",
+		"@astrojs/sitemap": "^3.0.0",
 		"@astrojs/tailwind": "^4.0.0",
 		"@fontsource/exo-2": "^5.0.8",
 		"@frontendista/astro-html-minify": "^2.0.0",
