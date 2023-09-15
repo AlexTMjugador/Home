@@ -47,6 +47,8 @@ jobs:
 
       - name: "🔍 Run Lighthouse CI"
         uses: treosh/lighthouse-ci-action@v10
+        with:
+          temporaryPublicStorage: true
 
   cd:
     name: CD
