@@ -2,7 +2,6 @@
 	"extends": "astro/tsconfigs/strict",
 	"exclude": ["node_modules", "dist"],
 	"compilerOptions": {
-		"moduleResolution": "node16",
 		"baseUrl": ".",
 		"paths": {
 			"@components/*": ["src/components/*"],

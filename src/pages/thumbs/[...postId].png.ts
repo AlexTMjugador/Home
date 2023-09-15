@@ -1,12 +1,12 @@
 import { OGImageRoute } from "astro-og-canvas";
-import { CollectionEntry, getCollection } from "astro:content";
+import { getCollection, type CollectionEntry } from "astro:content";
 
 const blogPosts = await getCollection(
 	"blog",
 	(blogPost) => !blogPost.data.draft,
 );
 
-export const { getStaticPaths, get } = OGImageRoute({
+export const { getStaticPaths, GET } = OGImageRoute({
 	param: "postId",
 	pages: blogPosts.reduce(
 		(pagesObject, blogPost) => {

@@ -4,7 +4,7 @@ import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
 
 import type { GetStaticPathsOptions, Page } from "astro";
-import { CollectionEntry, getCollection } from "astro:content";
+import { getCollection, type CollectionEntry } from "astro:content";
 import BlogPostPublishDate from "@components/BlogPostPublishDate.astro";
 import PaginationNavigationButton from "@components/PaginationNavigationButton.astro";
 import SearchBox from "@components/SearchBox.astro";

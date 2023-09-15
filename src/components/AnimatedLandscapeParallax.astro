@@ -1,11 +1,4 @@
 ---
-/* eslint-disable @typescript-eslint/no-explicit-any */
-
-import {
-	Picture,
-	PictureComponentLocalImageProps,
-} from "@astrojs/image/components";
-
 const parallaxLayers = {
 	"celestial-body": ["sepia"],
 	"landscape-trees-far": ["sepia"],
@@ -15,51 +8,14 @@ const parallaxLayers = {
 	"ground-near": ["brightness-125"],
 	trees: ["landscape-parallax-trees-filter"],
 };
-
-const landscapeParallaxPictureProps = (
-	imageName: string,
-	imageClasses: string[],
-	hideByDefault: boolean
-): PictureComponentLocalImageProps => ({
-	src: import(`../images/landscape-parallax/${imageName}.png`),
-	alt: "",
-	formats: ["webp", "png"],
-	widths: [800, 1280, 1920],
-	sizes: undefined as unknown as string,
-	decoding: undefined,
-	fetchpriority: undefined,
-	loading: undefined,
-	width: 1980,
-	height: 1080,
-	"class:list": [
-		`landscape-parallax-${imageName}`,
-		"absolute",
-		...(hideByDefault ? ["opacity-0"] : []),
-		...imageClasses,
-	],
-});
 ---
 
 <component-landscape-parallax class="relative h-full overflow-hidden">
 	{
-		Object.entries(parallaxLayers).map(([imageName, imageClasses]) => (
+		Object.entries(parallaxLayers).map(([_imageName, _imageClasses]) => (
 			<>
 				<noscript>
-					<Picture
-						{...(landscapeParallaxPictureProps(
-							imageName,
-							imageClasses,
-							false
-						) as any)}
-					/>
 				</noscript>
-				<Picture
-					{...(landscapeParallaxPictureProps(
-						imageName,
-						imageClasses,
-						true
-					) as any)}
-				/>
 			</>
 		))
 	}
