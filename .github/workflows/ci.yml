@@ -47,6 +47,8 @@ jobs:
 
       - name: "🔍 Run Lighthouse CI"
         uses: treosh/lighthouse-ci-action@v10
+        env:
+          LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
         with:
           temporaryPublicStorage: true
 
