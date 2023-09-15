@@ -7,7 +7,7 @@ import MarkdownIt from "markdown-it";
 
 type RSSFeedItem = Extract<RSSOptions["items"], unknown[]>[number];
 
-export async function get(context: APIContext) {
+export async function GET(context: APIContext) {
 	const blogPosts = await getCollection(
 		"blog",
 		(blogPost) => !blogPost.data.draft,

@@ -4,22 +4,22 @@ import Search from "astro-pagefind/components/Search";
 
 <Search />
 
-<style lang="scss">
+<style lang="scss" is:global>
 	:root {
-		--pagefind-ui-scale: 1;
-		--pagefind-ui-primary: var(--color-brown-400);
-		--pagefind-ui-text: var(--color-amber-50);
-		--pagefind-ui-background: var(--color-brown-400);
-		--pagefind-ui-border: var(--color-amber-50);
-		--pagefind-ui-tag: var(--color-brown-400);
-		--pagefind-ui-border-width: 1px;
-		--pagefind-ui-border-radius: 8px;
-		--pagefind-ui-image-border-radius: 8px;
-		--pagefind-ui-image-box-ratio: 3 / 2;
-		--pagefind-ui-font: unset;
+		--pagefind-ui-scale: 1 !important;
+		--pagefind-ui-primary: var(--color-brown-400) !important;
+		--pagefind-ui-text: var(--color-amber-50) !important;
+		--pagefind-ui-background: var(--color-brown-400) !important;
+		--pagefind-ui-border: var(--color-amber-50) !important;
+		--pagefind-ui-tag: var(--color-brown-400) !important;
+		--pagefind-ui-border-width: 1px !important;
+		--pagefind-ui-border-radius: 8px !important;
+		--pagefind-ui-image-border-radius: 8px !important;
+		--pagefind-ui-image-box-ratio: 3 / 2 !important;
+		--pagefind-ui-font: unset !important;
 	}
 
-	:global(.pagefind-ui a):hover {
+	.pagefind-ui a:hover {
 		text-decoration-color: var(--color-amber-400-accent) !important;
 	}
 </style>
