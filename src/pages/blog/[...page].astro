@@ -12,7 +12,7 @@ import SearchBox from "@components/SearchBox.astro";
 export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
 	return paginate(
 		await getCollection("blog", (blogPost) => !blogPost.data.draft),
-		{ pageSize: 10 }
+		{ pageSize: 10 },
 	);
 }
 
