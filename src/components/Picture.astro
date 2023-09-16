@@ -6,16 +6,16 @@ export interface Props {
 	src: ImageMetadata | Promise<ImageMetadata>;
 	classes?: string[];
 	hideByDefault?: boolean;
-	imageWidths: number[];
-	imageFormats: ImageOutputFormat[];
+	widths: number[];
+	formats: ImageOutputFormat[];
 }
 
-const { src, classes, hideByDefault, imageWidths, imageFormats } = Astro.props;
+const { src, classes, hideByDefault, widths, formats } = Astro.props;
 
 const pictureFormats = [];
-for (const format of imageFormats) {
+for (const format of formats) {
 	const pictureWidths = [];
-	for (const width of imageWidths) {
+	for (const width of widths) {
 		pictureWidths.push(
 			await getImage({
 				// @ts-expect-error Astro's type definitions here are contradictory and unusuable AFAICT
@@ -29,7 +29,7 @@ for (const format of imageFormats) {
 }
 
 const mostCompatiblePictureSource =
-	pictureFormats[imageFormats.length - 1][imageWidths.length - 1];
+	pictureFormats[formats.length - 1][widths.length - 1];
 ---
 
 <picture>
