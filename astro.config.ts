@@ -30,7 +30,8 @@ export default defineConfig({
 		pagefind(),
 		critters(),
 		compress({
-			Path: ["./dist/giscus", "./dist/icons", "./dist/thumbs", "./dist"],
+			Path: ["./dist"],
+			Exclude: ["./dist/assets"],
 		}),
 	],
 });
