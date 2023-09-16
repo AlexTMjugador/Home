@@ -1,4 +1,6 @@
 ---
+import Picture from "./Picture.astro";
+
 const parallaxLayers = {
 	"celestial-body": ["sepia"],
 	"landscape-trees-far": ["sepia"],
@@ -8,14 +10,39 @@ const parallaxLayers = {
 	"ground-near": ["brightness-125"],
 	trees: ["landscape-parallax-trees-filter"],
 };
+
+const imageWidths = [800, 1280, 1920];
+const imageFormats = ["avif", "webp", "png"];
 ---
 
 <component-landscape-parallax class="relative h-full overflow-hidden">
 	{
-		Object.entries(parallaxLayers).map(() => (
+		Object.entries(parallaxLayers).map(([imageName, imageClasses]) => (
 			<>
 				<noscript>
+					<Picture
+						src={import(`../images/landscape-parallax/${imageName}.png`)}
+						classes={[
+							`landscape-parallax-${imageName}`,
+							"absolute",
+							...imageClasses,
+						]}
+						hideByDefault={false}
+						imageWidths={imageWidths}
+						imageFormats={imageFormats}
+					/>
 				</noscript>
+				<Picture
+					src={import(`../images/landscape-parallax/${imageName}.png`)}
+					classes={[
+						`landscape-parallax-${imageName}`,
+						"absolute",
+						...imageClasses,
+					]}
+					hideByDefault={true}
+					imageWidths={imageWidths}
+					imageFormats={imageFormats}
+				/>
 			</>
 		))
 	}
