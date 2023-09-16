@@ -66,11 +66,11 @@ const {
 						this.textContainer.textContent =
 							this.textContainer.textContent?.slice(
 								0,
-								-this.cursor.length
+								-this.cursor.length,
 							) as string;
 
 						this.textContainer.textContent += currentText.charAt(
-							this.currentTextPosition
+							this.currentTextPosition,
 						);
 						this.textContainer.textContent += this.cursor;
 
@@ -79,7 +79,7 @@ const {
 						this.textContainer.textContent =
 							this.textContainer.textContent?.slice(
 								0,
-								-this.cursor.length - 1
+								-this.cursor.length - 1,
 							) as string;
 
 						this.textContainer.textContent += this.cursor;
@@ -116,6 +116,6 @@ const {
 
 				setTimeout(animationFunction, Number(this.dataset.startDelay));
 			}
-		}
+		},
 	);
 </script>

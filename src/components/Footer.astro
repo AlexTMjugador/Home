@@ -47,7 +47,7 @@ const linkSections: LinkSection[] = [
 				action: () =>
 					(
 						document.getElementById(
-							"discord-contact-modal"
+							"discord-contact-modal",
 						) as HTMLDialogElement
 					).showModal(),
 				iconName: "simple-icons:discord",
@@ -95,8 +95,8 @@ const linkSections: LinkSection[] = [
 			/> by myself</p
 		>
 		<p
-			>Check out <a href="/thirdParty">the third-party stuff</a> that powers this
-			website</p
+			>Check out <a href="/thirdParty">the third-party stuff</a> that powers
+			this website</p
 		>
 	</div>
 	{
@@ -133,7 +133,7 @@ const linkSections: LinkSection[] = [
 									role="presentation"
 								/>
 							</component-footer-button>
-						)
+						),
 					)}
 				</div>
 			</div>
@@ -175,6 +175,6 @@ const linkSections: LinkSection[] = [
 				});
 				this.addEventListener("click", action);
 			}
-		}
+		},
 	);
 </script>
