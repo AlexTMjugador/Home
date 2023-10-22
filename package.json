@@ -50,7 +50,7 @@
 		"@tailwindcss/typography": "^0.5.10",
 		"@wbmnky/license-report-generator": "^2.1.3",
 		"astro": "^3.3.2",
-		"astro-compress": "^2.0.15",
+		"astro-compress": "^2.1.3",
 		"astro-critters": "^2.0.11",
 		"astro-iconify": "^1.2.0",
 		"astro-licenses-report": "^0.8.4",
