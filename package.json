@@ -28,7 +28,7 @@
 		"astro": "astro"
 	},
 	"devDependencies": {
-		"@types/markdown-it": "^13.0.4",
+		"@types/markdown-it": "^13.0.5",
 		"@types/sanitize-html": "^2.9.3",
 		"@typescript-eslint/eslint-plugin": "^6.8.0",
 		"@typescript-eslint/parser": "^6.8.0",
