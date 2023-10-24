@@ -1,13 +1,20 @@
 {
 	"$schema": "https://docs.renovatebot.com/renovate-schema.json",
-	"extends": ["config:base", ":disableDependencyDashboard"],
+	"extends": ["config:best-practices", ":disableDependencyDashboard"],
 	"addLabels": ["dependencies"],
+	"automerge": true,
 	"automergeType": "branch",
+	"minimumReleaseAge": "3 days",
+	"schedule": ["every 2 day"],
 	"rangeStrategy": "bump",
 	"packageRules": [
 		{
-			"matchUpdateTypes": ["minor", "patch", "pin", "digest"],
-			"automerge": true
+			"matchUpdateTypes": ["major"],
+			"automerge": false
+		},
+		{
+			"matchCategories": ["js"],
+			"groupName": "JS/TS dependencies"
 		}
 	]
 }
