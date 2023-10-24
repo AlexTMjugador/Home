@@ -15,6 +15,10 @@
 		{
 			"matchCategories": ["js"],
 			"groupName": "JS/TS dependencies"
+		},
+		{
+			"matchCategories": ["ci"],
+			"groupName": "CI dependencies"
 		}
 	]
 }
