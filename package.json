@@ -30,8 +30,8 @@
 	"devDependencies": {
 		"@types/markdown-it": "13.0.7",
 		"@types/sanitize-html": "2.9.5",
-		"@typescript-eslint/eslint-plugin": "6.13.1",
-		"@typescript-eslint/parser": "6.13.1",
+		"@typescript-eslint/eslint-plugin": "6.13.2",
+		"@typescript-eslint/parser": "6.13.2",
 		"eslint": "8.55.0",
 		"eslint-config-prettier": "9.1.0",
 		"eslint-plugin-astro": "0.30.0",
@@ -62,6 +62,6 @@
 		"reading-time": "^1.5.0",
 		"sanitize-html": "^2.11.0",
 		"sass": "^1.69.5",
-		"tailwindcss": "^3.3.5"
+		"tailwindcss": "^3.3.6"
 	}
 }
