@@ -45,7 +45,7 @@
 		"@astrojs/mdx": "^1.1.5",
 		"@astrojs/rss": "^3.0.0",
 		"@astrojs/sitemap": "^3.0.3",
-		"@astrojs/tailwind": "^5.0.3",
+		"@astrojs/tailwind": "^5.0.4",
 		"@fontsource/exo-2": "^5.0.16",
 		"@tailwindcss/typography": "^0.5.10",
 		"@wbmnky/license-report-generator": "^2.1.3",
