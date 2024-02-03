@@ -30,21 +30,21 @@
 	"devDependencies": {
 		"@types/markdown-it": "13.0.7",
 		"@types/sanitize-html": "2.9.5",
-		"@typescript-eslint/eslint-plugin": "6.19.0",
-		"@typescript-eslint/parser": "6.19.0",
+		"@typescript-eslint/eslint-plugin": "6.20.0",
+		"@typescript-eslint/parser": "6.20.0",
 		"eslint": "8.56.0",
 		"eslint-config-prettier": "9.1.0",
-		"eslint-plugin-astro": "0.31.3",
+		"eslint-plugin-astro": "0.31.4",
 		"eslint-plugin-jsx-a11y": "6.8.0",
-		"prettier": "3.2.2",
-		"prettier-plugin-astro": "0.12.3",
+		"prettier": "3.2.4",
+		"prettier-plugin-astro": "0.13.0",
 		"prettier-plugin-tailwindcss": "0.5.11"
 	},
 	"dependencies": {
 		"@astrojs/check": "^0.4.1",
 		"@astrojs/mdx": "^1.1.5",
 		"@astrojs/rss": "^3.0.0",
-		"@astrojs/sitemap": "^3.0.4",
+		"@astrojs/sitemap": "^3.0.5",
 		"@astrojs/tailwind": "^5.1.0",
 		"@fontsource/exo-2": "^5.0.16",
 		"@tailwindcss/typography": "^0.5.10",
@@ -61,7 +61,7 @@
 		"markdown-it": "^13.0.2",
 		"reading-time": "^1.5.0",
 		"sanitize-html": "^2.11.0",
-		"sass": "^1.69.7",
+		"sass": "^1.70.0",
 		"tailwindcss": "^3.4.1"
 	}
 }
