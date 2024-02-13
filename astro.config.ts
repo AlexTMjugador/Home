@@ -28,7 +28,7 @@ export default defineConfig({
 			theme_color: "#795548",
 		}),
 		pagefind(),
-		critters(),
+		critters({}),
 		compress({
 			Path: ["./dist"],
 			Exclude: ["./dist/assets"],
