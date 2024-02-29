@@ -30,8 +30,8 @@
 	"devDependencies": {
 		"@types/markdown-it": "13.0.7",
 		"@types/sanitize-html": "2.11.0",
-		"@typescript-eslint/eslint-plugin": "7.0.2",
-		"@typescript-eslint/parser": "7.0.2",
+		"@typescript-eslint/eslint-plugin": "7.1.0",
+		"@typescript-eslint/parser": "7.1.0",
 		"eslint": "8.57.0",
 		"eslint-config-prettier": "9.1.0",
 		"eslint-plugin-astro": "0.31.4",
@@ -41,7 +41,7 @@
 		"prettier-plugin-tailwindcss": "0.5.11"
 	},
 	"dependencies": {
-		"@astrojs/check": "^0.5.5",
+		"@astrojs/check": "^0.5.6",
 		"@astrojs/mdx": "^2.1.1",
 		"@astrojs/rss": "^4.0.5",
 		"@astrojs/sitemap": "^3.1.1",
@@ -49,9 +49,9 @@
 		"@fontsource/exo-2": "^5.0.16",
 		"@tailwindcss/typography": "^0.5.10",
 		"@wbmnky/license-report-generator": "^2.3.0",
-		"astro": "^4.4.4",
-		"astro-compress": "^2.2.10",
-		"astro-critters": "^2.1.1",
+		"astro": "^4.4.5",
+		"astro-compress": "^2.2.11",
+		"astro-critters": "^2.1.2",
 		"astro-iconify": "^1.2.0",
 		"astro-licenses-report": "^0.8.4",
 		"astro-og-canvas": "^0.4.2",
