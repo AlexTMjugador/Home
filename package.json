@@ -41,7 +41,7 @@
 		"prettier-plugin-tailwindcss": "0.5.12"
 	},
 	"dependencies": {
-		"@astrojs/check": "^0.5.9",
+		"@astrojs/check": "^0.5.10",
 		"@astrojs/mdx": "^2.2.1",
 		"@astrojs/rss": "^4.0.5",
 		"@astrojs/sitemap": "^3.1.1",
