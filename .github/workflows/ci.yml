@@ -20,7 +20,7 @@ jobs:
 
     steps:
       - name: 📥 Checkout source
-        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
+        uses: actions/checkout@1d96c772d19495a3b5c517cd2bc0cb401ea0529f # v4
 
       - name: 🧰 Setup Node.js
         uses: actions/setup-node@60edb5dd545a775178f52524783378180af0d1f8 # v4
@@ -40,7 +40,7 @@ jobs:
         run: npm run build
 
       - name: 📤 Upload website distribution bundle
-        uses: actions/upload-artifact@1746f4ab65b179e0ea60a494b83293b640dd5bba # v4
+        uses: actions/upload-artifact@65462800fd760344b1a7b4382951275a0abb4808 # v4
         with:
           name: Web distribution bundle
           path: dist
@@ -65,7 +65,7 @@ jobs:
 
     steps:
       - name: 📥 Download website distribution bundle
-        uses: actions/download-artifact@8caf195ad4b1dee92908e23f56eeb0696f1dd42d # v4
+        uses: actions/download-artifact@9c19ed7fe5d278cd354c7dfd5d3b88589c7e2395 # v4
         with:
           name: Web distribution bundle
           path: dist
