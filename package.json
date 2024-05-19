@@ -41,15 +41,15 @@
 		"prettier-plugin-tailwindcss": "0.5.14"
 	},
 	"dependencies": {
-		"@astrojs/check": "^0.6.0",
+		"@astrojs/check": "^0.7.0",
 		"@astrojs/mdx": "^2.3.1",
-		"@astrojs/rss": "^4.0.5",
+		"@astrojs/rss": "^4.0.6",
 		"@astrojs/sitemap": "^3.1.4",
 		"@astrojs/tailwind": "^5.1.0",
 		"@fontsource/exo-2": "^5.0.18",
 		"@tailwindcss/typography": "^0.5.13",
 		"@wbmnky/license-report-generator": "^2.3.1",
-		"astro": "^4.8.3",
+		"astro": "^4.8.4",
 		"astro-compress": "^2.2.22",
 		"astro-critters": "^2.1.6",
 		"astro-iconify": "^1.2.0",
