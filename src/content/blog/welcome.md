@@ -97,6 +97,7 @@ log in to comment.
     people, so in practice that is not a concern.
 
 [^4]: Nobody is, but I try to be aware of it and act as rationally as possible.
+
 [^5]:
     You can call it an extensible static site generator based on components
     that render to plain HTML and CSS with no JavaScript code on the client,
