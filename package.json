@@ -49,7 +49,7 @@
 		"@fontsource/exo-2": "^5.0.18",
 		"@tailwindcss/typography": "^0.5.13",
 		"@wbmnky/license-report-generator": "^2.3.1",
-		"astro": "^4.12.1",
+		"astro": "^4.12.2",
 		"astro-compress": "^2.2.28",
 		"astro-critters": "^2.1.10",
 		"astro-iconify": "^1.2.0",
