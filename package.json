@@ -45,11 +45,11 @@
 		"@astrojs/mdx": "^3.1.6",
 		"@astrojs/rss": "^4.0.7",
 		"@astrojs/sitemap": "^3.1.6",
-		"@astrojs/tailwind": "^5.1.0",
+		"@astrojs/tailwind": "^5.1.1",
 		"@fontsource/exo-2": "^5.1.0",
 		"@tailwindcss/typography": "^0.5.15",
 		"@wbmnky/license-report-generator": "^2.3.1",
-		"astro": "^4.15.6",
+		"astro": "^4.15.7",
 		"astro-compress": "^2.3.1",
 		"astro-critters": "^2.2.0",
 		"astro-iconify": "^1.2.0",
@@ -61,7 +61,7 @@
 		"markdown-it": "^14.1.0",
 		"reading-time": "^1.5.0",
 		"sanitize-html": "^2.13.0",
-		"sass": "^1.78.0",
-		"tailwindcss": "^3.4.11"
+		"sass": "^1.79.1",
+		"tailwindcss": "^3.4.12"
 	}
 }
