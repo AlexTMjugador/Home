@@ -44,12 +44,12 @@
 		"@astrojs/check": "^0.9.3",
 		"@astrojs/mdx": "^3.1.7",
 		"@astrojs/rss": "^4.0.7",
-		"@astrojs/sitemap": "^3.1.6",
+		"@astrojs/sitemap": "^3.2.0",
 		"@astrojs/tailwind": "^5.1.1",
 		"@fontsource/exo-2": "^5.1.0",
 		"@tailwindcss/typography": "^0.5.15",
 		"@wbmnky/license-report-generator": "^2.3.2",
-		"astro": "^4.15.10",
+		"astro": "^4.15.11",
 		"astro-compress": "^2.3.1",
 		"astro-critters": "^2.2.0",
 		"astro-iconify": "^1.2.0",
@@ -60,7 +60,7 @@
 		"astro-webmanifest": "^1.0.0",
 		"markdown-it": "^14.1.0",
 		"reading-time": "^1.5.0",
-		"sanitize-html": "^2.13.0",
+		"sanitize-html": "^2.13.1",
 		"sass": "^1.79.4",
 		"tailwindcss": "^3.4.13"
 	}
