@@ -46,7 +46,7 @@
 		"@astrojs/rss": "^4.0.10",
 		"@astrojs/sitemap": "^3.2.1",
 		"@astrojs/tailwind": "^5.1.4",
-		"@fontsource/exo-2": "^5.1.0",
+		"@fontsource/exo-2": "^5.1.1",
 		"@tailwindcss/typography": "^0.5.15",
 		"@wbmnky/license-report-generator": "^2.3.2",
 		"astro": "^4.16.18",
