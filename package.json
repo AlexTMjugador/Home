@@ -50,7 +50,7 @@
 		"@tailwindcss/typography": "^0.5.16",
 		"@wbmnky/license-report-generator": "^2.3.2",
 		"astro": "^4.16.18",
-		"astro-compress": "^2.3.7",
+		"astro-compress": "^2.3.8",
 		"astro-critters": "^2.2.1",
 		"astro-iconify": "^1.2.0",
 		"astro-licenses-report": "^0.8.4",
@@ -61,7 +61,7 @@
 		"markdown-it": "^14.1.0",
 		"reading-time": "^1.5.0",
 		"sanitize-html": "^2.15.0",
-		"sass": "^1.86.1",
+		"sass": "^1.86.3",
 		"tailwindcss": "^3.4.17"
 	}
 }
