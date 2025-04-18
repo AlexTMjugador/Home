@@ -81,7 +81,7 @@ graph
   viewport sizes, minimizing the bandwidth required to display them while allowing
   fallbacks to less efficient arrangements.
 - Critical CSS styles are automatically inlined for better loading times with
-  [Critters](https://github.com/GoogleChromeLabs/critters).
+  [Beasties](https://github.com/DanielRoe/Beasties).
 - Custom, refreshing analogous color scheme that defies the usual light-dark
   dichotomy, implemented with [Tailwind CSS](https://tailwindcss.com/).
 - Client-side blog post search powered by [Pagefind](https://pagefind.app/).

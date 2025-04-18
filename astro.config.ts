@@ -6,7 +6,7 @@ import mdx from "@astrojs/mdx";
 import robotsTxt from "astro-robots-txt";
 import webmanifest from "astro-webmanifest";
 import pagefind from "astro-pagefind";
-import critters from "astro-critters";
+import beasties from "@playform/inline";
 import compress from "astro-compress";
 
 export default defineConfig({
@@ -28,7 +28,7 @@ export default defineConfig({
 			theme_color: "#795548",
 		}),
 		pagefind(),
-		critters({}),
+		beasties(),
 		compress({
 			Path: ["./dist"],
 			Exclude: ["./dist/assets"],

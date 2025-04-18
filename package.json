@@ -28,6 +28,7 @@
 		"astro": "astro"
 	},
 	"devDependencies": {
+		"@playform/inline": "0.1.2",
 		"@types/markdown-it": "14.1.2",
 		"@types/sanitize-html": "2.15.0",
 		"@typescript-eslint/eslint-plugin": "7.18.0",
@@ -51,7 +52,6 @@
 		"@wbmnky/license-report-generator": "^2.3.2",
 		"astro": "^4.16.18",
 		"astro-compress": "^2.3.8",
-		"astro-critters": "^2.2.1",
 		"astro-iconify": "^1.2.0",
 		"astro-licenses-report": "^0.8.4",
 		"astro-og-canvas": "^0.7.0",
