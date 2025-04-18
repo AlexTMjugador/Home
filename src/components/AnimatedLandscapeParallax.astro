@@ -110,6 +110,12 @@ const imageFormats = ["avif", "webp", "png"];
 			// horizontal axis without running out of image to show
 			@apply pointer-events-none left-[-25%] h-full w-[125%] max-w-none select-none object-cover;
 
+			animation: 45s
+				cubic-bezier(0.445, 0.05, 0.55, 0.95)
+				infinite
+				alternate
+				landscape-parallax-scroll-#{$name};
+
 			@keyframes landscape-parallax-scroll-#{$name} {
 				from {
 					transform: translateX(0);
@@ -118,12 +124,6 @@ const imageFormats = ["avif", "webp", "png"];
 					transform: translateX(calc($distance / 2));
 				}
 			}
-
-			animation: 45s
-				cubic-bezier(0.445, 0.05, 0.55, 0.95)
-				infinite
-				alternate
-				landscape-parallax-scroll-#{$name};
 		}
 	}
 </style>
