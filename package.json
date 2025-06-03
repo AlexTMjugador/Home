@@ -39,7 +39,7 @@
 		"eslint-plugin-jsx-a11y": "6.10.2",
 		"prettier": "3.5.3",
 		"prettier-plugin-astro": "0.14.1",
-		"prettier-plugin-tailwindcss": "0.6.11"
+		"prettier-plugin-tailwindcss": "0.6.12"
 	},
 	"dependencies": {
 		"@astrojs/check": "^0.9.4",
@@ -61,7 +61,7 @@
 		"markdown-it": "^14.1.0",
 		"reading-time": "^1.5.0",
 		"sanitize-html": "^2.17.0",
-		"sass": "^1.89.0",
+		"sass": "^1.89.1",
 		"tailwindcss": "^3.4.17"
 	}
 }
