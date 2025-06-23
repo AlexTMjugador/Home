@@ -39,7 +39,7 @@
 		"eslint-plugin-jsx-a11y": "6.10.2",
 		"prettier": "3.5.3",
 		"prettier-plugin-astro": "0.14.1",
-		"prettier-plugin-tailwindcss": "0.6.12"
+		"prettier-plugin-tailwindcss": "0.6.13"
 	},
 	"dependencies": {
 		"@astrojs/check": "^0.9.4",
@@ -50,7 +50,7 @@
 		"@fontsource/exo-2": "^5.2.6",
 		"@tailwindcss/typography": "^0.5.16",
 		"@wbmnky/license-report-generator": "^2.3.2",
-		"astro": "^5.9.4",
+		"astro": "^5.10.0",
 		"astro-compress": "^2.3.8",
 		"astro-iconify": "^1.2.0",
 		"astro-licenses-report": "^0.8.4",
