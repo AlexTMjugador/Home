@@ -42,7 +42,7 @@
 		"prettier": "3.6.2",
 		"prettier-plugin-astro": "0.14.1",
 		"prettier-plugin-tailwindcss": "0.6.14",
-		"typescript-eslint": "8.45.0"
+		"typescript-eslint": "8.46.0"
 	},
 	"dependencies": {
 		"@astrojs/check": "^0.9.4",
@@ -57,7 +57,7 @@
 		"astro-compress": "^2.3.8",
 		"astro-iconify": "^1.2.0",
 		"astro-licenses-report": "^0.8.4",
-		"astro-og-canvas": "^0.7.0",
+		"astro-og-canvas": "^0.7.1",
 		"astro-pagefind": "^1.8.5",
 		"astro-robots-txt": "^1.0.0",
 		"astro-webmanifest": "^1.0.0",
