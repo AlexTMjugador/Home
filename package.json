@@ -42,10 +42,10 @@
 		"prettier": "3.6.2",
 		"prettier-plugin-astro": "0.14.1",
 		"prettier-plugin-tailwindcss": "0.7.1",
-		"typescript-eslint": "8.46.1"
+		"typescript-eslint": "8.46.2"
 	},
 	"dependencies": {
-		"@astrojs/check": "^0.9.4",
+		"@astrojs/check": "^0.9.5",
 		"@astrojs/mdx": "^4.3.7",
 		"@astrojs/rss": "^4.0.12",
 		"@astrojs/sitemap": "^3.6.0",
@@ -53,7 +53,7 @@
 		"@fontsource/exo-2": "^5.2.8",
 		"@tailwindcss/typography": "^0.5.19",
 		"@wbmnky/license-report-generator": "^2.3.2",
-		"astro": "^5.14.6",
+		"astro": "^5.14.7",
 		"astro-compress": "^2.3.8",
 		"astro-iconify": "^1.2.0",
 		"astro-licenses-report": "^0.8.4",
