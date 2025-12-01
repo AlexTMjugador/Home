@@ -28,7 +28,7 @@
 		"astro": "astro"
 	},
 	"devDependencies": {
-		"@eslint/eslintrc": "3.3.1",
+		"@eslint/eslintrc": "3.3.3",
 		"@eslint/js": "9.39.1",
 		"@playform/inline": "0.1.2",
 		"@types/markdown-it": "14.1.2",
@@ -39,7 +39,7 @@
 		"eslint-plugin-jsx-a11y": "6.10.2",
 		"globals": "16.5.0",
 		"jiti": "2.6.1",
-		"prettier": "3.7.1",
+		"prettier": "3.7.2",
 		"prettier-plugin-astro": "0.14.1",
 		"prettier-plugin-tailwindcss": "0.7.1",
 		"typescript-eslint": "8.48.0"
