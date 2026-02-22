@@ -6,7 +6,7 @@ const blogPosts = await getCollection(
 	(blogPost) => !blogPost.data.draft,
 );
 
-export const { getStaticPaths, GET } = OGImageRoute({
+export const { getStaticPaths, GET } = await OGImageRoute({
 	param: "postId",
 	pages: blogPosts.reduce(
 		(pagesObject, blogPost) => {
