@@ -55,7 +55,7 @@
 		"@wbmnky/license-report-generator": "^2.3.2",
 		"astro": "^5.18.1",
 		"astro-compress": "^2.4.1",
-		"astro-iconify": "^1.2.0",
+		"astro-iconify": "^1.3.1",
 		"astro-licenses-report": "^0.8.4",
 		"astro-og-canvas": "^0.11.0",
 		"astro-pagefind": "^1.8.6",
