@@ -41,11 +41,11 @@
 		"jiti": "2.6.1",
 		"prettier": "3.8.3",
 		"prettier-plugin-astro": "0.14.1",
-		"prettier-plugin-tailwindcss": "0.7.3",
-		"typescript-eslint": "8.59.0"
+		"prettier-plugin-tailwindcss": "0.8.0",
+		"typescript-eslint": "8.59.1"
 	},
 	"dependencies": {
-		"@astrojs/check": "^0.9.8",
+		"@astrojs/check": "^0.9.9",
 		"@astrojs/mdx": "^4.3.14",
 		"@astrojs/rss": "^4.0.18",
 		"@astrojs/sitemap": "^3.7.2",
