@@ -42,7 +42,7 @@
 		"prettier": "3.8.3",
 		"prettier-plugin-astro": "0.14.1",
 		"prettier-plugin-tailwindcss": "0.8.0",
-		"typescript-eslint": "8.60.1"
+		"typescript-eslint": "8.61.0"
 	},
 	"dependencies": {
 		"@astrojs/check": "^0.9.9",
@@ -51,7 +51,7 @@
 		"@astrojs/sitemap": "^3.7.3",
 		"@astrojs/tailwind": "^6.0.2",
 		"@fontsource/exo-2": "^5.2.8",
-		"@tailwindcss/typography": "^0.5.19",
+		"@tailwindcss/typography": "^0.5.20",
 		"@wbmnky/license-report-generator": "^2.3.2",
 		"astro": "^5.18.1",
 		"astro-compress": "^2.4.1",
