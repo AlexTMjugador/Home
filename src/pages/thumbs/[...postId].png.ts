@@ -16,8 +16,8 @@ export const { getStaticPaths, GET } = await OGImageRoute({
 	),
 	getSlug: (postSlug: string) => `blog/post/${postSlug}`,
 	getImageOptions: (_: string, page: CollectionEntry<"blog">) => {
-		const title = trimAndEllideAfterLastWord(page.data.title);
-		const description = trimAndEllideAfterLastWord(page.data.description);
+		const title = trimAndElideAfterLastWord(page.data.title);
+		const description = trimAndElideAfterLastWord(page.data.description);
 
 		const titleFontSize = fitFontSizeForText(title, 32, 72);
 		const descriptionFontSize = fitFontSizeForText(
@@ -64,7 +64,7 @@ export const { getStaticPaths, GET } = await OGImageRoute({
 	},
 });
 
-function trimAndEllideAfterLastWord(
+function trimAndElideAfterLastWord(
 	text: string,
 	maxLength = 200, // ~ 3 lines of text (see comments at fitFontSizeForText), after adjustments for a minimum font size of 26
 	ellipsisMarker = "...",
