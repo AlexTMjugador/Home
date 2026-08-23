@@ -20,14 +20,12 @@ export async function GET(context: APIContext) {
 		description: import.meta.env.PUBLIC_SITE_DESCRIPTION,
 		site: String(context.site),
 		stylesheet: "/rss/pretty-feed-v3.xsl",
-		items: blogPosts.map(
-			(blogPost): RSSFeedItem => ({
-				title: blogPost.data.title,
-				description: blogPost.data.description,
-				pubDate: blogPost.data.publishDate,
-				content: sanitizeHtml(markdownParser.render(blogPost.body)),
-				link: `/blog/post/${blogPost.slug}`,
-			}),
-		),
+		items: blogPosts.map((blogPost): RSSFeedItem => ({
+			title: blogPost.data.title,
+			description: blogPost.data.description,
+			pubDate: blogPost.data.publishDate,
+			content: sanitizeHtml(markdownParser.render(blogPost.body)),
+			link: `/blog/post/${blogPost.slug}`,
+		})),
 	});
 }
