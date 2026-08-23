@@ -7,7 +7,6 @@ const blogPosts = await getCollection(
 );
 
 export const { getStaticPaths, GET } = await OGImageRoute({
-	param: "postId",
 	pages: blogPosts.reduce(
 		(pagesObject, blogPost) => {
 			pagesObject[blogPost.slug] = blogPost;
